@@ -23,8 +23,20 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CustomCollectionViewCell
         
         cell.pictureLabel.text = "Hello, Picture!"
-        cell.pictureImageView.image = UIImage.init(named: "FerrariTestPicture")
+        cell.pictureImageView.image = UIImage(named: "FerrariTestPicture")
         
         return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate protocol methods
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Hello")
+        let secondVC = SecondViewController()
+        
+        secondVC.pictureLabel.text = "Hello, Second!";
+        secondVC.pictureImageView.image = UIImage(named: "FerrariTestPicture")
+        
+        self.navigationController?.show(secondVC, sender: self)
     }
 }

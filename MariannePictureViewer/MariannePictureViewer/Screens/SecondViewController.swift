@@ -1,5 +1,5 @@
 //
-//  CustomCollectionViewCell.swift
+//  SecondViewController.swift
 //  MariannePictureViewer
 //
 //  Created by Roman Kolosov on 13.02.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomCollectionViewCell: UICollectionViewCell {
+class SecondViewController: UIViewController {
     
     // Some properties
     var pictureLabel : UILabel = UILabel()
@@ -15,10 +15,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Initializers
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(nibName: nil, bundle: nil)
         
-        configureCell()
+        configureSecondVC()
     }
     
     required init?(coder: NSCoder) {
@@ -27,21 +27,21 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Configure
     
-    func configureCell() {
-        self.backgroundColor = .green
+    func configureSecondVC() {
+        self.view.backgroundColor = .yellow
         
-        let pictureLabelFrame = CGRect(x: 0.0, y: 0.0, width: self.bounds.size.width, height: 18.0)
+        let pictureLabelFrame = CGRect(x: 21.0, y: 111.0, width: self.view.bounds.size.width - 42.0, height: 21)
         self.pictureLabel = UILabel(frame: pictureLabelFrame)
-        self.pictureLabel.font = .systemFont(ofSize: 12)
+        self.pictureLabel.font = .systemFont(ofSize: 18)
         self.pictureLabel.textColor = .blue
         self.pictureLabel.textAlignment = NSTextAlignment.center
         
-        self.contentView.addSubview(self.pictureLabel)
+        self.view.addSubview(self.pictureLabel)
         
-        let pictureImageViewFrame = CGRect(x: 0.0, y: pictureLabel.frame.height + 2.0, width: self.bounds.size.width, height: 80.0)
+        let pictureImageViewFrame = CGRect(x: 21.0, y: 111.0 + pictureLabel.frame.height + 80.0, width: self.view.bounds.size.width - 42.0, height: 180.0)
         self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
         self.pictureImageView.contentMode = .scaleAspectFill
         
-        self.contentView.addSubview(pictureImageView)
+        self.view.addSubview(pictureImageView)
     }
 }

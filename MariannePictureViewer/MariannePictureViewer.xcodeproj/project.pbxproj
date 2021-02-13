@@ -17,6 +17,7 @@
 		C891205C25D6FF2700F5E594 /* MariannePictureViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */; };
 		C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */; };
 		C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */; };
+		C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208B25D851D300F5E594 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C891205D25D6FF2700F5E594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C891208B25D851D300F5E594 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			children = (
 				C891203A25D6FF2300F5E594 /* MainViewController.swift */,
 				C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */,
+				C891208B25D851D300F5E594 /* SecondViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */,
 				C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */,
 				C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */,
+				C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */,
 				C891203925D6FF2300F5E594 /* SceneDelegate.swift in Sources */,
 				C891204125D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld in Sources */,
 			);
