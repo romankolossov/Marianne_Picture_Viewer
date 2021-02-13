@@ -15,6 +15,8 @@
 		C891204625D6FF2700F5E594 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */; };
 		C891205125D6FF2700F5E594 /* MariannePictureViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891205025D6FF2700F5E594 /* MariannePictureViewerTests.swift */; };
 		C891205C25D6FF2700F5E594 /* MariannePictureViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */; };
+		C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */; };
+		C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C891205725D6FF2700F5E594 /* MariannePictureViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MariannePictureViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MariannePictureViewerUITests.swift; sourceTree = "<group>"; };
 		C891205D25D6FF2700F5E594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,10 @@
 		C891203525D6FF2300F5E594 /* MariannePictureViewer */ = {
 			isa = PBXGroup;
 			children = (
-				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
-				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
-				C891203A25D6FF2300F5E594 /* MainViewController.swift */,
-				C891204225D6FF2700F5E594 /* Assets.xcassets */,
-				C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */,
-				C891204725D6FF2700F5E594 /* Info.plist */,
-				C891203F25D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld */,
+				C891207925D81C9000F5E594 /* Components */,
+				C891207A25D81CC900F5E594 /* Screens */,
+				C891207F25D81D8000F5E594 /* CoreData */,
+				C891207825D81BD500F5E594 /* SupportingFiles */,
 			);
 			path = MariannePictureViewer;
 			sourceTree = "<group>";
@@ -126,6 +127,51 @@
 				C891205D25D6FF2700F5E594 /* Info.plist */,
 			);
 			path = MariannePictureViewerUITests;
+			sourceTree = "<group>";
+		};
+		C891207825D81BD500F5E594 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C891207B25D81D0C00F5E594 /* forBaseLproj */,
+				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
+				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
+				C891204225D6FF2700F5E594 /* Assets.xcassets */,
+				C891204725D6FF2700F5E594 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		C891207925D81C9000F5E594 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C891207A25D81CC900F5E594 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C891203A25D6FF2300F5E594 /* MainViewController.swift */,
+				C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C891207B25D81D0C00F5E594 /* forBaseLproj */ = {
+			isa = PBXGroup;
+			children = (
+				C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */,
+			);
+			path = forBaseLproj;
+			sourceTree = "<group>";
+		};
+		C891207F25D81D8000F5E594 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C891203F25D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +303,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */,
 				C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */,
+				C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */,
 				C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */,
 				C891203925D6FF2300F5E594 /* SceneDelegate.swift in Sources */,
 				C891204125D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld in Sources */,
@@ -430,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = MariannePictureViewer/Info.plist;
+				INFOPLIST_FILE = MariannePictureViewer/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,7 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = MariannePictureViewer/Info.plist;
+				INFOPLIST_FILE = MariannePictureViewer/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
