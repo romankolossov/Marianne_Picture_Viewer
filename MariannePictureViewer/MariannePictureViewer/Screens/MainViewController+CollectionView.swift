@@ -16,13 +16,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        21
+        photoData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CustomCollectionViewCell
-        
-        cell.pictureLabel.text = "Hello, Picture!"
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CustomCollectionViewCell else {
+            fatalError()
+        }
+        //cell.pictureLabel.text = "Hello, Picture!"
+        cell.pictureLabel.text = photoData[indexPath.row].author
         cell.pictureImageView.image = UIImage(named: "FerrariTestPicture")
         
         return cell
