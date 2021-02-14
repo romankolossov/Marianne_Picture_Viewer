@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     // Some properties
     let cellIdentifier : String = "CellIdentifier"
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
     private func loadData(completion: (() -> Void)? = nil) {
         DispatchQueue.global().async { [weak self] in
             self?.networkManager.loadPhotos() { [weak self] result in
-                
+
                 switch result {
                 case let .success(photoElements):
                     let photoData: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
@@ -70,7 +70,7 @@ class MainViewController: UIViewController {
                         completion?()
                     }
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
                 }
             }
         }

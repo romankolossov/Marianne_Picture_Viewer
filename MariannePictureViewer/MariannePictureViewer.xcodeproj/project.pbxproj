@@ -20,6 +20,7 @@
 		C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208B25D851D300F5E594 /* SecondViewController.swift */; };
 		C891209925D9204700F5E594 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891209825D9204700F5E594 /* NetworkManager.swift */; };
 		C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120A625D923D100F5E594 /* PhotoCodable.swift */; };
+		C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120AF25D994A900F5E594 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		C891208B25D851D300F5E594 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C891209825D9204700F5E594 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C89120A625D923D100F5E594 /* PhotoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCodable.swift; sourceTree = "<group>"; };
+		C89120AF25D994A900F5E594 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		C891207A25D81CC900F5E594 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C89120AE25D9947000F5E594 /* Common */,
 				C891203A25D6FF2300F5E594 /* MainViewController.swift */,
 				C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */,
 				C891208B25D851D300F5E594 /* SecondViewController.swift */,
@@ -197,6 +200,14 @@
 				C89120A625D923D100F5E594 /* PhotoCodable.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C89120AE25D9947000F5E594 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C89120AF25D994A900F5E594 /* BaseViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +344,7 @@
 				C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */,
 				C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */,
 				C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */,
+				C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */,
 				C891209925D9204700F5E594 /* NetworkManager.swift in Sources */,
 				C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */,
 				C891203925D6FF2300F5E594 /* SceneDelegate.swift in Sources */,
