@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		C891209925D9204700F5E594 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891209825D9204700F5E594 /* NetworkManager.swift */; };
 		C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120A625D923D100F5E594 /* PhotoCodable.swift */; };
 		C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120AF25D994A900F5E594 /* BaseViewController.swift */; };
+		C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C89120B525D99B5F00F5E594 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +228,9 @@
 			dependencies = (
 			);
 			name = MariannePictureViewer;
+			packageProductDependencies = (
+				C89120B525D99B5F00F5E594 /* SDWebImage */,
+			);
 			productName = MariannePictureViewer;
 			productReference = C891203325D6FF2300F5E594 /* MariannePictureViewer.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +302,9 @@
 				Base,
 			);
 			mainGroup = C891202A25D6FF2300F5E594;
+			packageReferences = (
+				C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = C891203425D6FF2300F5E594 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -673,6 +681,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C89120B525D99B5F00F5E594 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C891203F25D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld */ = {

@@ -16,16 +16,18 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        photoData.count
+        self.photoData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CustomCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicCellIdentifier, for: indexPath) as? CustomCollectionViewCell else {
             fatalError()
         }
-        //cell.pictureLabel.text = "Hello, Picture!"
-        cell.pictureLabel.text = photoData[indexPath.row].author
-        cell.pictureImageView.image = UIImage(named: "FerrariTestPicture")
+        cell.pictureLabel.text = self.photoData[indexPath.row].author
+        
+        let stringPhotoImageURL = self.photoData[indexPath.row].downloadURL
+        // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
+        cell.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? ""), completed: nil)
         
         return cell
     }
@@ -36,9 +38,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         print("Hello")
         let secondVC = SecondViewController()
         
-        secondVC.pictureLabel.text = "Hello, Second!";
-        secondVC.pictureImageView.image = UIImage(named: "FerrariTestPicture")
+        secondVC.pictureLabel.text = self.photoData[indexPath.row].author
+        let stringPhotoImageURL = self.photoData[indexPath.row].downloadURL
         
-        self.navigationController?.show(secondVC, sender: self)
+        secondVC.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? ""), completed: nil)
+        
+        self.navigationController?.pushViewController(secondVC, animated: true)
     }
 }

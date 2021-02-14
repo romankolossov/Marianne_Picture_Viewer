@@ -10,16 +10,15 @@ import Foundation
 // Data to save
 
 class PhotoElementData {
-    var sourceID: String?
+    //var sourceID: String?
     var author: String?
-    var url: String?
+    let downloadURL: String?
     
-
     init(photoElement: PhotoElement) {
+        //self.sourceID = photoElement.id
         
-        self.sourceID = photoElement.id
         self.author = photoElement.author
-        self.url = photoElement.url
+        self.downloadURL = photoElement.downloadURL
     }
 }
 

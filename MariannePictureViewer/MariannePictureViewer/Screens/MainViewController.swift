@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MainViewController: BaseViewController {
     
     // Some properties
-    let cellIdentifier : String = "CellIdentifier"
-    var collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
-    var photoData: [PhotoElementData] = []
-    
+    private let cellIdentifier : String = "CellIdentifier"
+    var publicCellIdentifier: String {
+        cellIdentifier
+    }
     private let networkManager = NetworkManager.shared
+    
+    private var collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
+    
+    var photoData: [PhotoElementData] = []
     
     // MARK: - Lifecycle
 
@@ -28,13 +33,13 @@ class MainViewController: BaseViewController {
     
     // MARK: - Configure
     
-    func configureMainVC() {
+    private func configureMainVC() {
         self.title = "Lorem pictures";
         
         self.navigationController?.navigationBar.prefersLargeTitles = true;
     }
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         
         layout.minimumLineSpacing = 10.0
@@ -48,7 +53,7 @@ class MainViewController: BaseViewController {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
-        self.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        self.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: publicCellIdentifier)
         
         self.view.addSubview(self.collectionView)
     }

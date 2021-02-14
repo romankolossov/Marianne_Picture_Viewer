@@ -27,20 +27,20 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Configure
     
-    func configureCell() {
-        self.backgroundColor = .green
+    private func configureCell() {
+        self.backgroundColor = .brown
         
-        let pictureLabelFrame = CGRect(x: 0.0, y: 0.0, width: self.bounds.size.width, height: 18.0)
+        let pictureLabelFrame = CGRect(x: 2.0, y: 2.0, width: self.bounds.size.width - 4, height: 12.0)
         self.pictureLabel = UILabel(frame: pictureLabelFrame)
         self.pictureLabel.font = .systemFont(ofSize: 12)
-        self.pictureLabel.textColor = .blue
+        self.pictureLabel.textColor = .purple
         self.pictureLabel.textAlignment = NSTextAlignment.center
         
         self.contentView.addSubview(self.pictureLabel)
         
-        let pictureImageViewFrame = CGRect(x: 0.0, y: pictureLabel.frame.height + 2.0, width: self.bounds.size.width, height: 80.0)
+        let pictureImageViewFrame = CGRect(x: 0.0, y: 2.0 + pictureLabel.frame.height + 2.0 , width: self.bounds.size.width, height: 82.0)
         self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
-        self.pictureImageView.contentMode = .scaleAspectFill
+        self.pictureImageView.contentMode = .scaleAspectFit
         
         self.contentView.addSubview(pictureImageView)
     }
