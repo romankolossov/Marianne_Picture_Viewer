@@ -28,7 +28,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     // MARK: - Configure
     
     private func configureCell() {
-        self.backgroundColor = .brown
+        self.backgroundColor = .clear
         
         let pictureLabelFrame = CGRect(x: 2.0, y: 2.0, width: self.bounds.size.width - 4, height: 12.0)
         self.pictureLabel = UILabel(frame: pictureLabelFrame)
@@ -43,5 +43,27 @@ class CustomCollectionViewCell: UICollectionViewCell {
         self.pictureImageView.contentMode = .scaleAspectFit
         
         self.contentView.addSubview(pictureImageView)
+    }
+    
+    // MARK: - Animations
+    
+    func animate() {
+        UIView.animate(withDuration: 2.1,
+                       delay: 0.0,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.backgroundColor = .brown
+                       },
+                       completion: nil)
+    }
+    
+    func animatePictureLabel() {
+        UIView.transition(with: self.pictureLabel,
+                          duration: 0.8,
+                          options: [.transitionCrossDissolve, .curveEaseInOut],
+                          animations: {
+                            self.pictureLabel.alpha = 1
+                          },
+                          completion: nil)
     }
 }

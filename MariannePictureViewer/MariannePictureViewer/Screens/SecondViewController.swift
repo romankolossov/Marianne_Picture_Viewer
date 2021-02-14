@@ -24,6 +24,14 @@ class SecondViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.animatePictureLabel()
+    }
+    
     // MARK: - Configure
     
     private func configureSecondVC() {
@@ -34,6 +42,7 @@ class SecondViewController: UIViewController {
         self.pictureLabel.font = .systemFont(ofSize: 21)
         self.pictureLabel.textColor = .blue
         self.pictureLabel.textAlignment = NSTextAlignment.center
+        self.pictureLabel.isHidden = true
         
         self.view.addSubview(self.pictureLabel)
         
@@ -42,5 +51,17 @@ class SecondViewController: UIViewController {
         self.pictureImageView.contentMode = .scaleAspectFit
         
         self.view.addSubview(pictureImageView)
+    }
+    
+    // MARK: - Animations
+    
+    private func animatePictureLabel() {
+        UIView.transition(with: self.pictureLabel,
+                          duration: 1.0,
+                          options: [.transitionCrossDissolve, .curveEaseInOut],
+                          animations: {
+                            self.pictureLabel.isHidden = false
+                          },
+                          completion: nil)
     }
 }

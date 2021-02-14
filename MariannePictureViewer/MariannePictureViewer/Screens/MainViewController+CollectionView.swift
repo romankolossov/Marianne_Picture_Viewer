@@ -23,11 +23,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicCellIdentifier, for: indexPath) as? CustomCollectionViewCell else {
             fatalError()
         }
-        cell.pictureLabel.text = self.photoData[indexPath.row].author
-        
         let stringPhotoImageURL = self.photoData[indexPath.row].downloadURL
+        
         // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
-        cell.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? ""), completed: nil)
+        cell.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? "")) { (image, error, SDImageCacheType, url) in
+            cell.pictureLabel.text = self.photoData[indexPath.row].author
+            
+            cell.animatePictureLabel()
+        }
+        cell.animate()
         
         return cell
     }
