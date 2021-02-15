@@ -42,7 +42,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         print("Hello")
         let secondVC = SecondViewController()
         
-        secondVC.pictureLabel.text = self.photoData[indexPath.row].author
+        secondVC.pictureLabel.text = "by \(self.photoData[indexPath.row].author ?? "")"
         let stringPhotoImageURL = self.photoData[indexPath.row].downloadURL
         
         secondVC.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? ""), completed: nil)

@@ -10,8 +10,8 @@ import UIKit
 class SecondViewController: UIViewController {
     
     // Some properties
-    var pictureLabel : UILabel = UILabel()
-    var pictureImageView : UIImageView = UIImageView()
+    var pictureLabel: UILabel = UILabel()
+    var pictureImageView: UIImageView = UIImageView()
     
     // MARK: - Initializers
     
@@ -48,7 +48,7 @@ class SecondViewController: UIViewController {
         
         let pictureImageViewFrame = CGRect(x: 21.0, y: 111.0 + pictureLabel.frame.height + 80.0, width: self.view.bounds.size.width - 42.0, height: 180.0)
         self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
-        self.pictureImageView.contentMode = .scaleAspectFit
+        self.pictureImageView.contentMode = .scaleAspectFill
         
         self.view.addSubview(pictureImageView)
     }

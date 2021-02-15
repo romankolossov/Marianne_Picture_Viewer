@@ -11,14 +11,14 @@ import SDWebImage
 class MainViewController: BaseViewController {
     
     // Some properties
-    private let cellIdentifier : String = "CellIdentifier"
+    private let cellIdentifier: String = "CellIdentifier"
     var publicCellIdentifier: String {
         cellIdentifier
     }
     private let networkManager = NetworkManager.shared
     
-    private var collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
-    
+    private var collectionView: UICollectionView!
+    //private var collectionView: UICollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
     var photoData: [PhotoElementData] = []
     
     // MARK: - Lifecycle

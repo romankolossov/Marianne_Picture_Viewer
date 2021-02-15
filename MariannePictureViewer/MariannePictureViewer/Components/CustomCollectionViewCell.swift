@@ -10,8 +10,8 @@ import UIKit
 class CustomCollectionViewCell: UICollectionViewCell {
     
     // Some properties
-    var pictureLabel : UILabel = UILabel()
-    var pictureImageView : UIImageView = UIImageView()
+    var pictureLabel: UILabel = UILabel()
+    var pictureImageView: UIImageView = UIImageView()
     
     // MARK: - Initializers
     
@@ -20,7 +20,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         configureCell()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -30,7 +29,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     private func configureCell() {
         self.backgroundColor = .clear
         
-        let pictureLabelFrame = CGRect(x: 2.0, y: 2.0, width: self.bounds.size.width - 4, height: 12.0)
+        let pictureLabelFrame = CGRect(x: 3.0, y: 3.0, width: self.bounds.size.width - 6, height: 12.0)
         self.pictureLabel = UILabel(frame: pictureLabelFrame)
         self.pictureLabel.font = .systemFont(ofSize: 12)
         self.pictureLabel.textColor = .purple
@@ -38,7 +37,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         
         self.contentView.addSubview(self.pictureLabel)
         
-        let pictureImageViewFrame = CGRect(x: 0.0, y: 2.0 + pictureLabel.frame.height + 2.0 , width: self.bounds.size.width, height: 82.0)
+        let pictureImageViewFrame = CGRect(x: 0.0, y: 3.0 + pictureLabel.frame.height + 3.0 , width: self.bounds.size.width, height: 78.0)
         self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
         self.pictureImageView.contentMode = .scaleAspectFit
         
