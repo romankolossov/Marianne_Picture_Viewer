@@ -57,12 +57,18 @@ class CustomCollectionViewCell: UICollectionViewCell {
                        completion: nil)
     }
     
-    func animatePictureLabel() {
+    func animateSubviews() {
         UIView.transition(with: self.pictureLabel,
                           duration: 0.8,
                           options: [.transitionCrossDissolve, .curveEaseInOut],
                           animations: {
-                            self.pictureLabel.alpha = 1
+                          },
+                          completion: nil)
+        
+        UIView.transition(with: self.pictureImageView,
+                          duration: 0.8,
+                          options: [.transitionCrossDissolve, .curveEaseInOut],
+                          animations: {
                           },
                           completion: nil)
     }

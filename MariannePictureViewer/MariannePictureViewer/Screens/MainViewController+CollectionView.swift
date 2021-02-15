@@ -29,7 +29,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? "")) { (image, error, SDImageCacheType, url) in
             cell.pictureLabel.text = self.photoData[indexPath.row].author
             
-            cell.animatePictureLabel()
+            cell.animateSubviews()
         }
         cell.animate()
         

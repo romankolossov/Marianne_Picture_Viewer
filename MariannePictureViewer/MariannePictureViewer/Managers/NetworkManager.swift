@@ -33,9 +33,8 @@ class NetworkManager {
     
     // MARK: - Major methods
     
-    func networkRequest(completion: ((Result<[Any], Error>) -> Void)? = nil) {
+    private func networkRequest(completion: ((Result<[Any], Error>) -> Void)? = nil) {
         // Lorem Picsum URL used
-        // https://picsum.photos/v2/list
         // https://picsum.photos/v2/list?page=2&limit=100
         
         // URL constructor

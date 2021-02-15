@@ -29,7 +29,7 @@ class SecondViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.animatePictureLabel()
+        self.animateSubviews()
     }
     
     // MARK: - Configure
@@ -55,7 +55,7 @@ class SecondViewController: UIViewController {
     
     // MARK: - Animations
     
-    private func animatePictureLabel() {
+    private func animateSubviews() {
         UIView.transition(with: self.pictureLabel,
                           duration: 1.0,
                           options: [.transitionCrossDissolve, .curveEaseInOut],
