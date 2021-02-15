@@ -8,7 +8,7 @@
 import Foundation
 
 class NetworkManager {
-    // Singleton pattern
+    
     static let shared = NetworkManager()
     private init() {}
     
@@ -86,4 +86,4 @@ class NetworkManager {
         }
     }
 }
-
+ 

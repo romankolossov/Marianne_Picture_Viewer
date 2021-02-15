@@ -22,6 +22,7 @@
 		C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120A625D923D100F5E594 /* PhotoCodable.swift */; };
 		C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120AF25D994A900F5E594 /* BaseViewController.swift */; };
 		C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C89120B525D99B5F00F5E594 /* SDWebImage */; };
+		C89120BC25DA92A000F5E594 /* CollectionViewPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		C891209825D9204700F5E594 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C89120A625D923D100F5E594 /* PhotoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCodable.swift; sourceTree = "<group>"; };
 		C89120AF25D994A900F5E594 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPhotoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		C891203525D6FF2300F5E594 /* MariannePictureViewer */ = {
 			isa = PBXGroup;
 			children = (
+				C89120BA25DA924000F5E594 /* Services */,
 				C891209725D9200F00F5E594 /* Managers */,
 				C89120A525D9238C00F5E594 /* Models */,
 				C891207925D81C9000F5E594 /* Components */,
@@ -210,6 +213,14 @@
 				C89120AF25D994A900F5E594 /* BaseViewController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C89120BA25DA924000F5E594 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +363,7 @@
 				C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */,
 				C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */,
 				C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */,
+				C89120BC25DA92A000F5E594 /* CollectionViewPhotoService.swift in Sources */,
 				C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */,
 				C891209925D9204700F5E594 /* NetworkManager.swift in Sources */,
 				C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */,

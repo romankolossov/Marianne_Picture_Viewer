@@ -23,29 +23,29 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicCellIdentifier, for: indexPath) as? CustomCollectionViewCell else {
             fatalError()
         }
-        let stringPhotoImageURL = self.photoData[indexPath.row].downloadURL
+        let photoElementData = self.photoData[indexPath.row]
         
-        // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
-        cell.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? "")) { (image, error, SDImageCacheType, url) in
-            cell.pictureLabel.text = self.photoData[indexPath.row].author
-            
-            cell.animateSubviews()
-        }
+        cell.lookConfigure(with: photoElementData,
+                           photoService: publicCollectionViewPhotoService,
+                           indexPath: indexPath)
+        
+        cell.animateSubviews()
         cell.animate()
-        
+        // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
+
         return cell
     }
     
     // MARK: - UICollectionViewDelegate protocol methods
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Hello")
         let secondVC = SecondViewController()
         
-        secondVC.pictureLabel.text = "by \(self.photoData[indexPath.row].author ?? "")"
-        let stringPhotoImageURL = self.photoData[indexPath.row].downloadURL
+        let photoElementData = self.photoData[indexPath.row]
         
-        secondVC.pictureImageView.sd_setImage(with: URL(string: stringPhotoImageURL ?? ""), completed: nil)
+        secondVC.lookConfigure(with: photoElementData,
+                           photoService: publicCollectionViewPhotoService,
+                           indexPath: indexPath)
         
         self.navigationController?.pushViewController(secondVC, animated: true)
     }

@@ -15,10 +15,14 @@ class MainViewController: BaseViewController {
     var publicCellIdentifier: String {
         cellIdentifier
     }
+    private var collectionViewPhotoService: CollectionViewPhotoService?
+    var publicCollectionViewPhotoService: CollectionViewPhotoService? {
+        collectionViewPhotoService
+    }
     private let networkManager = NetworkManager.shared
     
     private var collectionView: UICollectionView!
-    //private var collectionView: UICollectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
+    
     var photoData: [PhotoElementData] = []
     
     // MARK: - Lifecycle
@@ -28,6 +32,8 @@ class MainViewController: BaseViewController {
         configureMainVC()
         
         configureCollectionView()
+        collectionViewPhotoService = CollectionViewPhotoService(container: collectionView)
+        
         loadData()
     }
     
@@ -59,7 +65,7 @@ class MainViewController: BaseViewController {
     }
     
     // MARK: - Major methods
-    
+
     private func loadData(completion: (() -> Void)? = nil) {
         DispatchQueue.global().async { [weak self] in
             self?.networkManager.loadPhotos() { [weak self] result in

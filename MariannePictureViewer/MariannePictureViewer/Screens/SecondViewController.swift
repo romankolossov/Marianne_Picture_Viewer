@@ -53,6 +53,16 @@ class SecondViewController: UIViewController {
         self.view.addSubview(pictureImageView)
     }
     
+    func lookConfigure(with photo: PhotoElementData, photoService: CollectionViewPhotoService?, indexPath: IndexPath) {
+        
+        guard let photoStringURL = photo.downloadURL else {
+            fatalError()
+        }
+        self.pictureLabel.text = "by \(photo.author ?? "")"
+        
+        self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
+    }
+    
     // MARK: - Animations
     
     private func animateSubviews() {

@@ -27,7 +27,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     // MARK: - Configure
     
     private func configureCell() {
-        self.backgroundColor = .clear
+        //self.backgroundColor = .clear
+        self.backgroundColor = .brown
         
         let pictureLabelFrame = CGRect(x: 3.0, y: 3.0, width: self.bounds.size.width - 6, height: 12.0)
         self.pictureLabel = UILabel(frame: pictureLabelFrame)
@@ -42,6 +43,16 @@ class CustomCollectionViewCell: UICollectionViewCell {
         self.pictureImageView.contentMode = .scaleAspectFit
         
         self.contentView.addSubview(pictureImageView)
+    }
+    
+    func lookConfigure(with photo: PhotoElementData, photoService: CollectionViewPhotoService?, indexPath: IndexPath) {
+        
+        guard let photoStringURL = photo.downloadURL else {
+            fatalError()
+        }
+        self.pictureLabel.text = photo.author
+        
+        self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
     }
     
     // MARK: - Animations
