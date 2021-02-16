@@ -13,6 +13,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     // Some properties
     var pictureLabel: UILabel = UILabel()
     var pictureImageView: UIImageView = UIImageView()
+    private var cachedImages = [String : UIImage]()
     
     // MARK: - Initializers
     
@@ -25,13 +26,13 @@ class CustomCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Configure
+    // MARK: - Configure methods
     
     private func configureCell() {
         let indent: CGFloat = 3.0
         
         self.contentView.alpha = 0
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .systemYellow
         
         let pictureLabelFrame = CGRect(x: indent, y: indent,
                                        width: self.bounds.size.width - indent * 2,
@@ -65,9 +66,21 @@ class CustomCollectionViewCell: UICollectionViewCell {
         // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells. Also it shows the download activity
         self.pictureImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         
-        self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [self] (image, error, SDImageCacheType, url) in
+        // Cache use
+        if let photo = cachedImages[photoStringURL] {
+            self.pictureImageView.image = photo
             
-            self.animateSubviews()
+            print("\(photoStringURL) : Cached image")
+        } else {
+            self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [self] (image, error, SDImageCacheType, url) in
+                guard let image = image else { return }
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.cachedImages[photoStringURL] = image
+                }
+                self.animateSubviews()
+                print("\(photoStringURL) : Network image")
+            }
         }
         animate()
         animateSubviews()
