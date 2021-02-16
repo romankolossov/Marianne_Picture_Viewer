@@ -45,12 +45,15 @@ class MainViewController: BaseViewController {
     }
     
     private func configureCollectionView() {
-        let layout = UICollectionViewFlowLayout()
+        // Custom layout
+        let layout = PhotoLayout()
         
-        layout.minimumLineSpacing = 10.0
-        layout.minimumInteritemSpacing = 10.0
-        layout.itemSize = CGSize(width: 100.0, height: 100.0)
-        layout.scrollDirection = .vertical
+        // Regular layout configuration
+//        let layout = UICollectionViewFlowLayout()
+//        layout.minimumLineSpacing = 10.0
+//        layout.minimumInteritemSpacing = 10.0
+//        layout.itemSize = CGSize(width: 100.0, height: 100.0)
+//        layout.scrollDirection = .vertical
         
         self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         self.collectionView.backgroundColor = .lightGray

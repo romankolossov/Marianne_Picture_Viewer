@@ -65,7 +65,7 @@ class SecondViewController: UIViewController {
             
             self.animateSubviews()
         }
-        // Way of use image caches
+        // Way of use image caches. For more see comments in CustomCollectionViewCell
         //self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
     }
     
