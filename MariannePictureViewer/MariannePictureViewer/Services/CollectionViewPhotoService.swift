@@ -1,0 +1,180 @@
+//
+//  CollectionViewPhotoService.swift
+//  MariannePictureViewer
+//
+//  Created by Roman Kolosov on 15.02.2021.
+//
+
+import UIKit
+
+class CollectionViewPhotoService {
+    
+    // MARK: - Some properties
+    
+    // Error handling
+    enum DecoderError: Error {
+        case failureInJSONdecoding
+    }
+    // Create cache files dirrectory
+    private static let pathName: String = {
+        let pathName = "images"
+        guard let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+            else { return pathName }
+        
+        let url = cachesDirectory.appendingPathComponent(pathName, isDirectory: true)
+        
+        if !FileManager.default.fileExists(atPath: url.path) {
+            try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+        }
+        return pathName
+    }()
+    // URLSession
+    private lazy var session: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        //configuration.allowsCellularAccess = false
+        let session =  URLSession(configuration: configuration)
+        
+        return session
+    }()
+    private let cacheLifeTime: TimeInterval = 1 * 60 * 60
+    
+    var images = [String: UIImage]()
+    private let container: UICollectionView
+    
+    // MARK: - Initializer
+
+    init(container: UICollectionView) {
+        self.container = container
+    }
+    
+    // MARK: - Major methods
+    
+    private func networkRequest(completion: ((Result<[PhotoElementData], Error>) -> Void)? = nil) {
+        // Lorem Picsum URL used
+        // https://picsum.photos/v2/list?page=2&limit=100
+        
+        // URL constructor
+        var urlConstructor = URLComponents()
+        
+        urlConstructor.scheme = "https"
+        urlConstructor.host = "picsum.photos"
+        urlConstructor.path = "/v2/list"
+        
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "page", value: "1"),
+            URLQueryItem(name: "limit", value: "30"),
+        ]
+        guard let url = urlConstructor.url else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        //request.allowsCellularAccess = false
+        
+        // Data task
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                do {
+                    let PhotoElements = try JSONDecoder().decode(PhotoQuery.self, from: data)
+                    let photos: [PhotoElementData] = PhotoElements.map { PhotoElementData(photoElement: $0) }
+                    completion?(.success(photos))
+                } catch {
+                    completion?(.failure(DecoderError.failureInJSONdecoding))
+                }
+            } else if let error = error {
+                #if DEBUG
+                print("error in session.dataTask from:\n\(#function)")
+                #endif
+                completion?(.failure(error))
+            }
+        }
+        dataTask.resume()
+    }
+    
+    // MARK: Cache file methods
+
+    // Get an image cache file path basing on its url
+    private func getFilePath(url: String) -> String? {
+        guard let cashesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+            else { return nil }
+        
+        let hashName = url.split(separator: "/").last ?? "default"
+        return cashesDirectory.appendingPathComponent(CollectionViewPhotoService.pathName + "/" + hashName).path
+    }
+    
+    private func saveImageToCache(url: String, image: UIImage) {
+        guard let fileLocalyPath = getFilePath(url: url), let data = image.pngData()
+            else { return }
+        
+        FileManager.default.createFile(atPath: fileLocalyPath, contents: data, attributes: nil)
+    }
+    
+    private func getImageFromCache(url: String) -> UIImage? {
+        guard let fileLocalyPath = getFilePath(url: url),
+            let info = try? FileManager.default.attributesOfItem(atPath: fileLocalyPath),
+            let modificationDate = info[FileAttributeKey.modificationDate] as? Date
+            else { return nil }
+        
+        let lifeTime = Date().timeIntervalSince(modificationDate)
+        
+        guard lifeTime <= cacheLifeTime,
+            let image = UIImage(contentsOfFile: fileLocalyPath)
+            else { return nil }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.images[url] = image
+        }
+        return image
+    }
+    
+    // MARK: Network method
+    
+    private func loadPhoto(atIndexPath indexPath: IndexPath, byUrl url: String) {
+        DispatchQueue.global().async { [weak self] in
+            self?.networkRequest() { [weak self] result in
+                
+                switch result {
+                case let .success(photoElementsData):
+                    let photoElementData = photoElementsData[indexPath.row]
+                  
+                    guard let photoStringURL = photoElementData.downloadURL else {
+                        fatalError()
+                    }
+                    guard let photoURL = URL(string: photoStringURL) else { return }
+                    guard let data = try? Data(contentsOf: photoURL) else { return }
+                    guard let image = UIImage(data: data) else { return }
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.images[photoStringURL] = image
+                    }
+                    self?.saveImageToCache(url: photoStringURL, image: image)
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.container.reloadItems(at: [indexPath])
+                    }
+                case let .failure(error):
+                    #if DEBUG
+                    print(error.localizedDescription)
+                    #endif
+                }
+            }
+        }
+    }
+    
+    // MARK: Get photo method
+    
+    func getPhoto(atIndexPath indexPath: IndexPath, byUrl url: String) -> UIImage? {
+        var image: UIImage?
+        
+        if let photo = images[url] {
+            print("\(url) : ОПЕРАТИВНАЯ ПАМЯТЬ")
+            image = photo
+        } else if let photo = getImageFromCache(url: url) {
+            print("\(url) : ФИЗИЧЕСКАЯ ПАМЯТЬ")
+            image = photo
+        } else {
+            print("\(url) : ЗАГРУЗКА ИЗ СЕТИ")
+            loadPhoto(atIndexPath: indexPath, byUrl: url)
+        }
+        return image
+    }
+}

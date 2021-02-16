@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,14 @@
 		C891204625D6FF2700F5E594 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */; };
 		C891205125D6FF2700F5E594 /* MariannePictureViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891205025D6FF2700F5E594 /* MariannePictureViewerTests.swift */; };
 		C891205C25D6FF2700F5E594 /* MariannePictureViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */; };
+		C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */; };
+		C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */; };
+		C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208B25D851D300F5E594 /* SecondViewController.swift */; };
+		C891209925D9204700F5E594 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891209825D9204700F5E594 /* NetworkManager.swift */; };
+		C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120A625D923D100F5E594 /* PhotoCodable.swift */; };
+		C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120AF25D994A900F5E594 /* BaseViewController.swift */; };
+		C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C89120B525D99B5F00F5E594 /* SDWebImage */; };
+		C89120BC25DA92A000F5E594 /* CollectionViewPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,13 @@
 		C891205725D6FF2700F5E594 /* MariannePictureViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MariannePictureViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MariannePictureViewerUITests.swift; sourceTree = "<group>"; };
 		C891205D25D6FF2700F5E594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C891208B25D851D300F5E594 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C891209825D9204700F5E594 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C89120A625D923D100F5E594 /* PhotoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCodable.swift; sourceTree = "<group>"; };
+		C89120AF25D994A900F5E594 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPhotoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +115,13 @@
 		C891203525D6FF2300F5E594 /* MariannePictureViewer */ = {
 			isa = PBXGroup;
 			children = (
-				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
-				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
-				C891203A25D6FF2300F5E594 /* MainViewController.swift */,
-				C891204225D6FF2700F5E594 /* Assets.xcassets */,
-				C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */,
-				C891204725D6FF2700F5E594 /* Info.plist */,
-				C891203F25D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld */,
+				C89120BA25DA924000F5E594 /* Services */,
+				C891209725D9200F00F5E594 /* Managers */,
+				C89120A525D9238C00F5E594 /* Models */,
+				C891207925D81C9000F5E594 /* Components */,
+				C891207A25D81CC900F5E594 /* Screens */,
+				C891207F25D81D8000F5E594 /* CoreData */,
+				C891207825D81BD500F5E594 /* SupportingFiles */,
 			);
 			path = MariannePictureViewer;
 			sourceTree = "<group>";
@@ -128,6 +144,85 @@
 			path = MariannePictureViewerUITests;
 			sourceTree = "<group>";
 		};
+		C891207825D81BD500F5E594 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C891207B25D81D0C00F5E594 /* forBaseLproj */,
+				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
+				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
+				C891204225D6FF2700F5E594 /* Assets.xcassets */,
+				C891204725D6FF2700F5E594 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		C891207925D81C9000F5E594 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C891207A25D81CC900F5E594 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C89120AE25D9947000F5E594 /* Common */,
+				C891203A25D6FF2300F5E594 /* MainViewController.swift */,
+				C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */,
+				C891208B25D851D300F5E594 /* SecondViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C891207B25D81D0C00F5E594 /* forBaseLproj */ = {
+			isa = PBXGroup;
+			children = (
+				C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */,
+			);
+			path = forBaseLproj;
+			sourceTree = "<group>";
+		};
+		C891207F25D81D8000F5E594 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C891203F25D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C891209725D9200F00F5E594 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C891209825D9204700F5E594 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		C89120A525D9238C00F5E594 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C89120A625D923D100F5E594 /* PhotoCodable.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C89120AE25D9947000F5E594 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C89120AF25D994A900F5E594 /* BaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C89120BA25DA924000F5E594 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +239,9 @@
 			dependencies = (
 			);
 			name = MariannePictureViewer;
+			packageProductDependencies = (
+				C89120B525D99B5F00F5E594 /* SDWebImage */,
+			);
 			productName = MariannePictureViewer;
 			productReference = C891203325D6FF2300F5E594 /* MariannePictureViewer.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +313,9 @@
 				Base,
 			);
 			mainGroup = C891202A25D6FF2300F5E594;
+			packageReferences = (
+				C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = C891203425D6FF2300F5E594 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +358,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */,
+				C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */,
 				C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */,
+				C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */,
 				C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */,
+				C89120BC25DA92A000F5E594 /* CollectionViewPhotoService.swift in Sources */,
+				C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */,
+				C891209925D9204700F5E594 /* NetworkManager.swift in Sources */,
+				C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */,
 				C891203925D6FF2300F5E594 /* SceneDelegate.swift in Sources */,
 				C891204125D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld in Sources */,
 			);
@@ -430,7 +538,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = MariannePictureViewer/Info.plist;
+				INFOPLIST_FILE = MariannePictureViewer/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,7 +557,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = MariannePictureViewer/Info.plist;
+				INFOPLIST_FILE = MariannePictureViewer/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -585,6 +693,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C89120B525D99B5F00F5E594 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C891203F25D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld */ = {
