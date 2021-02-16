@@ -15,13 +15,13 @@ class CollectionViewPhotoService {
     enum DecoderError: Error {
         case failureInJSONdecoding
     }
-    // Create images cache dirrectory
+    // Create cache files dirrectory
     private static let pathName: String = {
         let pathName = "images"
-        guard let cashesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        guard let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
             else { return pathName }
         
-        let url = cashesDirectory.appendingPathComponent(pathName, isDirectory: true)
+        let url = cachesDirectory.appendingPathComponent(pathName, isDirectory: true)
         
         if !FileManager.default.fileExists(atPath: url.path) {
             try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
@@ -90,7 +90,7 @@ class CollectionViewPhotoService {
         dataTask.resume()
     }
     
-    // MARK: Work with image cache methods
+    // MARK: Cache file methods
 
     // Get an image cache file path basing on its url
     private func getFilePath(url: String) -> String? {
@@ -126,7 +126,7 @@ class CollectionViewPhotoService {
         return image
     }
     
-    // MARK: Load photo from network method
+    // MARK: Network method
     
     private func loadPhoto(atIndexPath indexPath: IndexPath, byUrl url: String) {
         DispatchQueue.global().async { [weak self] in

@@ -29,10 +29,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                            photoService: publicCollectionViewPhotoService,
                            indexPath: indexPath)
         
-        cell.animateSubviews()
-        cell.animate()
-        // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
-
         return cell
     }
     

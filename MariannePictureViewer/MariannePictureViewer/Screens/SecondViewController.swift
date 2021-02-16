@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SecondViewController: UIViewController {
     
@@ -42,7 +43,7 @@ class SecondViewController: UIViewController {
         self.pictureLabel.font = .systemFont(ofSize: 21)
         self.pictureLabel.textColor = .blue
         self.pictureLabel.textAlignment = NSTextAlignment.center
-        self.pictureLabel.isHidden = true
+        self.pictureLabel.alpha = 0
         
         self.view.addSubview(self.pictureLabel)
         
@@ -60,17 +61,24 @@ class SecondViewController: UIViewController {
         }
         self.pictureLabel.text = "by \(photo.author ?? "")"
         
-        self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
+        // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
+        self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [self] (image, error, SDImageCacheType, url) in
+            
+            self.animateSubviews()
+        }
+        
+        // Way of use image caches
+        //self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
     }
     
     // MARK: - Animations
     
     private func animateSubviews() {
         UIView.transition(with: self.pictureLabel,
-                          duration: 1.0,
+                          duration: 2.1,
                           options: [.transitionCrossDissolve, .curveEaseInOut],
                           animations: {
-                            self.pictureLabel.isHidden = false
+                            self.pictureLabel.alpha = 1
                           },
                           completion: nil)
     }
