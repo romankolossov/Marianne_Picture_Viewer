@@ -38,7 +38,7 @@ class SecondViewController: UIViewController {
     private func configureSecondVC() {
         self.view.backgroundColor = .yellow
         
-        let pictureLabelFrame = CGRect(x: 21.0, y: 111.0, width: self.view.bounds.size.width - 42.0, height: 21)
+        let pictureLabelFrame = CGRect(x: 21.0, y: 120, width: self.view.bounds.size.width - 42.0, height: 21)
         self.pictureLabel = UILabel(frame: pictureLabelFrame)
         self.pictureLabel.font = .systemFont(ofSize: 21)
         self.pictureLabel.textColor = .blue
@@ -47,7 +47,7 @@ class SecondViewController: UIViewController {
         
         self.view.addSubview(self.pictureLabel)
         
-        let pictureImageViewFrame = CGRect(x: 21.0, y: 111.0 + pictureLabel.frame.height + 80.0, width: self.view.bounds.size.width - 42.0, height: 180.0)
+        let pictureImageViewFrame = CGRect(x: 21.0, y: (self.view.bounds.size.height / 2) - (self.view.bounds.size.width * 9 / 16 / 2), width: self.view.bounds.size.width - 42.0, height: self.view.bounds.size.width * 9 / 16)
         self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
         self.pictureImageView.contentMode = .scaleAspectFill
         
@@ -61,12 +61,10 @@ class SecondViewController: UIViewController {
         }
         self.pictureLabel.text = "by \(photo.author ?? "")"
         
-        // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
         self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [self] (image, error, SDImageCacheType, url) in
             
             self.animateSubviews()
         }
-        
         // Way of use image caches
         //self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
     }

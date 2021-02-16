@@ -42,7 +42,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let pictureImageViewFrame = CGRect(x: 0.0, y: 3.0 + pictureLabel.frame.height + 3.0 , width: self.bounds.size.width, height: 78.0)
         self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
         self.pictureImageView.contentMode = .scaleAspectFit
-        self.pictureImageView.alpha = 0
         
         self.contentView.addSubview(pictureImageView)
     }
@@ -55,11 +54,13 @@ class CustomCollectionViewCell: UICollectionViewCell {
         self.pictureLabel.text = photo.author
         
         // SDWebImage used since it is the most easy way to download images avoiding its mismatch in cells
+        self.pictureImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        self.pictureImageView.sd_imageIndicator = SDWebImageActivityIndicator.medium
+    
         self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [self] (image, error, SDImageCacheType, url) in
             
             self.animateSubviews()
         }
-        
         // Way of use image caches
         //self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
         
@@ -91,7 +92,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
                           duration: 1.2,
                           options: [.transitionCrossDissolve, .curveEaseInOut],
                           animations: {
-                            self.pictureImageView.alpha = 1
                           },
                           completion: nil)
     }
