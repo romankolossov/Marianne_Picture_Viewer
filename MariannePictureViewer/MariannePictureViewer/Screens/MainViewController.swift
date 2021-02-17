@@ -19,10 +19,12 @@ class MainViewController: BaseViewController {
         collectionViewPhotoService
     }
     private let networkManager = NetworkManager.shared
-    
+    var publicNetworkManager: NetworkManager {
+        networkManager
+    }
     private var collectionView: UICollectionView!
-    
     var photoData: [PhotoElementData] = []
+    var isLoading: Bool = false
     
     // MARK: - Lifecycle
 
@@ -48,18 +50,19 @@ class MainViewController: BaseViewController {
         // Custom layout
         let layout = PhotoLayout()
         
-        // Regular layout configuration
-//        let layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 10.0
-//        layout.minimumInteritemSpacing = 10.0
-//        layout.itemSize = CGSize(width: 100.0, height: 100.0)
-//        layout.scrollDirection = .vertical
-        
+        /* // Regular layout configuration
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 10.0
+        layout.minimumInteritemSpacing = 10.0
+        layout.itemSize = CGSize(width: 100.0, height: 100.0)
+        layout.scrollDirection = .vertical
+        */
         self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         self.collectionView.backgroundColor = .lightGray
         
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.prefetchDataSource = self
         
         self.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: publicCellIdentifier)
         
@@ -80,6 +83,7 @@ class MainViewController: BaseViewController {
                         //self?.photoData = photoData.map{$0}
                         self?.photoData = photoData
                         self?.collectionView.reloadData()
+                        self?.isLoading = false
                         completion?()
                     }
                 case let .failure(error):
@@ -88,5 +92,27 @@ class MainViewController: BaseViewController {
             }
         }
     }
+    
+    func loadPartData(from page: Int, completion: (() -> Void)? = nil) {
+        DispatchQueue.global().async { [weak self] in
+            self?.networkManager.loadPartPhotos(from: page) { [weak self] result in
+
+                switch result {
+                case let .success(photoElements):
+                    let photoData: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
+                    DispatchQueue.main.async { [weak self] in
+                        self?.photoData = (self?.photoData ?? []) + photoData
+                        self?.collectionView.reloadData()
+                        self?.isLoading = false
+                        completion?()
+                    }
+                case let .failure(error):
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    
 }
 

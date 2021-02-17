@@ -8,12 +8,12 @@
 import UIKit
 
 class PhotoLayout: UICollectionViewLayout {
-    let cellHeight: CGFloat = 128
+    let cellHeight: CGFloat = 168
     
     let columnsCount = 1
     var totalCellHeight: CGFloat = 0
     
-    var cachedAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
+    var cachedAttributes = [IndexPath : UICollectionViewLayoutAttributes]()
     
     override func prepare() {
         super.prepare()
@@ -72,7 +72,7 @@ class PhotoLayout: UICollectionViewLayout {
     }
     
     override var collectionViewContentSize: CGSize {
-        return CGSize(width: self.collectionView?.frame.width ?? 0, height: self.totalCellHeight)
+        return CGSize(width: self.collectionView?.bounds.size.width ?? 0, height: self.totalCellHeight)
     }
 }
 

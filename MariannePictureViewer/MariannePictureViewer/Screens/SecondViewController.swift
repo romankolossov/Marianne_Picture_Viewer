@@ -36,7 +36,7 @@ class SecondViewController: UIViewController {
     // MARK: - Configure
     
     private func configureSecondVC() {
-        self.view.backgroundColor = .yellow
+        self.view.backgroundColor = .systemYellow
         
         let pictureLabelFrame = CGRect(x: 21.0, y: 120, width: self.view.bounds.size.width - 42.0, height: 21)
         self.pictureLabel = UILabel(frame: pictureLabelFrame)
@@ -61,11 +61,20 @@ class SecondViewController: UIViewController {
         }
         self.pictureLabel.text = "by \(photo.author ?? "")"
         
-        self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [self] (image, error, SDImageCacheType, url) in
+        /* SDWebImage use */
+        self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [weak self] (image, error, SDImageCacheType, url) in
             
-            self.animateSubviews()
+            self?.animateSubviews()
         }
-        // Way of use image caches. For more see comments in CustomCollectionViewCell
+        /* SDWebImage use end */
+        
+        /* Way of use RAM, file image caches and network download with CollectionViewPhotoService.
+         For more see explanations in CustomCollectionViewCell.swift file.
+         In order to use CollectionViewPhotoService, plese
+         1. comment the code between "SDWebImage use - SDWebImage use end";
+         2. remove comments from the use of photoService in the line bellow;
+         3. perform actions following instructions in CustomCollectionViewCell.swift file.
+         */
         //self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
     }
     

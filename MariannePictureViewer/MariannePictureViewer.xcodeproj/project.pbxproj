@@ -94,6 +94,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C83355E625DCCF9B00205932 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C891204225D6FF2700F5E594 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C83355E725DCD00F00205932 /* Enviroments */ = {
+			isa = PBXGroup;
+			children = (
+				C891204725D6FF2700F5E594 /* Info.plist */,
+			);
+			path = Enviroments;
+			sourceTree = "<group>";
+		};
 		C891202A25D6FF2300F5E594 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +139,8 @@
 				C891207925D81C9000F5E594 /* Components */,
 				C891207A25D81CC900F5E594 /* Screens */,
 				C891207F25D81D8000F5E594 /* CoreData */,
+				C83355E625DCCF9B00205932 /* Resources */,
+				C83355E725DCD00F00205932 /* Enviroments */,
 				C891207825D81BD500F5E594 /* SupportingFiles */,
 			);
 			path = MariannePictureViewer;
@@ -149,11 +167,9 @@
 		C891207825D81BD500F5E594 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				C891207B25D81D0C00F5E594 /* forBaseLproj */,
+				C891207B25D81D0C00F5E594 /* BaseLprojIsHere */,
 				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
 				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
-				C891204225D6FF2700F5E594 /* Assets.xcassets */,
-				C891204725D6FF2700F5E594 /* Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -178,12 +194,12 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		C891207B25D81D0C00F5E594 /* forBaseLproj */ = {
+		C891207B25D81D0C00F5E594 /* BaseLprojIsHere */ = {
 			isa = PBXGroup;
 			children = (
 				C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */,
 			);
-			path = forBaseLproj;
+			path = BaseLprojIsHere;
 			sourceTree = "<group>";
 		};
 		C891207F25D81D8000F5E594 /* CoreData */ = {
@@ -542,7 +558,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = MariannePictureViewer/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = MariannePictureViewer/Enviroments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,7 +577,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = MariannePictureViewer/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = MariannePictureViewer/Enviroments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

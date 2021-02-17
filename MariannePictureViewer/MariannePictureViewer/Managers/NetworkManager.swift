@@ -13,6 +13,7 @@ class NetworkManager {
     private init() {}
     
     // MARK: - Some properties
+    var nextFromPage: Int = 2
     
     // Error handling
     enum NetworkError: Error {
@@ -33,9 +34,11 @@ class NetworkManager {
     
     // MARK: - Major methods
     
-    private func networkRequest(completion: ((Result<[Any], Error>) -> Void)? = nil) {
+    private func networkRequest(for page: Int, completion: ((Result<[Any], Error>) -> Void)? = nil) {
         // Lorem Picsum URL used
         // https://picsum.photos/v2/list?page=2&limit=100
+        
+        guard page >= 1 else { return }
         
         // URL constructor
         var urlConstructor = URLComponents()
@@ -45,7 +48,7 @@ class NetworkManager {
         urlConstructor.path = "/v2/list"
         
         urlConstructor.queryItems = [
-            URLQueryItem(name: "page", value: "1"),
+            URLQueryItem(name: "page", value: "\(page)"),
             URLQueryItem(name: "limit", value: "30"),
         ]
         guard let url = urlConstructor.url else { return }
@@ -76,7 +79,9 @@ class NetworkManager {
     // MARK: - Network load method
     
     func loadPhotos(completion: ((Result<[PhotoElement], NetworkError>) -> Void)? = nil) {
-        networkRequest() {result in
+        let page: Int = 1
+        
+        networkRequest(for: page) {result in
             switch result {
             case let .success(photos):
                 completion?(.success(photos as! [PhotoElement]))
@@ -84,6 +89,18 @@ class NetworkManager {
                 completion?(.failure(.incorrectData))
             }
         }
+    }
+    
+    func loadPartPhotos(from page: Int, completion: ((Result<[PhotoElement], NetworkError>) -> Void)? = nil) {
+        networkRequest(for: page) {result in
+            switch result {
+            case let .success(photos):
+                completion?(.success(photos as! [PhotoElement]))
+            case .failure:
+                completion?(.failure(.incorrectData))
+            }
+        }
+        NetworkManager.shared.nextFromPage = page + 1
     }
 }
  
