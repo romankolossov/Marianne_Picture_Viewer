@@ -24,7 +24,7 @@
 "picturesHeader" = "PHOTOS";
 "favoritesHeader" = "FAVORITE";
 
-"aboutAppDescribe" = "\"Marianne Picture Viewer\" is an application for looking through the Lorem Picsum photos";
+"aboutAppDescribe" = "\"Marianne\" is a picture viewer application for looking through the Lorem Picsum photos";
 "picturesDescribe" = "Photos taken from: https://picsum.photos";
 "favoritesDescribe" = "Save photos to favorites";
 
