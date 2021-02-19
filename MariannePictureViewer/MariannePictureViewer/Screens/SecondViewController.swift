@@ -18,7 +18,6 @@ class SecondViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        
         configureSecondVC()
     }
     required init?(coder: NSCoder) {
@@ -27,9 +26,12 @@ class SecondViewController: UIViewController {
     
     // MARK: - Lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .portrait
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         self.animateSubviews()
     }
     
@@ -38,19 +40,33 @@ class SecondViewController: UIViewController {
     private func configureSecondVC() {
         self.view.backgroundColor = .systemYellow
         
-        let pictureLabelFrame = CGRect(x: 21.0, y: 120, width: self.view.bounds.size.width - 42.0, height: 21)
-        self.pictureLabel = UILabel(frame: pictureLabelFrame)
-        self.pictureLabel.font = .systemFont(ofSize: 21)
-        self.pictureLabel.textColor = .blue
-        self.pictureLabel.textAlignment = NSTextAlignment.center
-        self.pictureLabel.alpha = 0
+        // MARK: Layout subviews
         
-        self.view.addSubview(self.pictureLabel)
+        let indent: CGFloat = 11.0
+        let picScale: CGFloat = 12 / 9
+        let subviewWidth: CGFloat = ceil(self.view.bounds.size.width - indent * 2)
         
-        let pictureImageViewFrame = CGRect(x: 21.0, y: (self.view.bounds.size.height / 2) - (self.view.bounds.size.width * 9 / 16 / 2), width: self.view.bounds.size.width - 42.0, height: self.view.bounds.size.width * 9 / 16)
-        self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
-        self.pictureImageView.contentMode = .scaleAspectFill
+        let piclHeight: CGFloat = ceil(subviewWidth * picScale)
+        let picY: CGFloat = ceil(self.view.bounds.size.height / 2 - piclHeight / 2)
         
+        let labelHeight: CGFloat = 21.0
+        let labelY: CGFloat = ceil(picY - labelHeight - indent * 1.5)
+        
+        let pictureLabelFrame = CGRect(x: indent, y: labelY, width: subviewWidth, height: labelHeight)
+        let pictureImageViewFrame = CGRect(x: indent, y: picY, width: subviewWidth, height: piclHeight)
+        
+        // MARK: Configure subviws
+        
+        pictureLabel = UILabel(frame: pictureLabelFrame)
+        pictureLabel.font = .systemFont(ofSize: 21)
+        pictureLabel.textColor = .blue
+        pictureLabel.textAlignment = NSTextAlignment.center
+        pictureLabel.alpha = 0
+        
+        pictureImageView = UIImageView(frame: pictureImageViewFrame)
+        pictureImageView.contentMode = .scaleAspectFit
+        
+        self.view.addSubview(pictureLabel)
         self.view.addSubview(pictureImageView)
     }
     

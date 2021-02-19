@@ -110,6 +110,15 @@
 			path = Enviroments;
 			sourceTree = "<group>";
 		};
+		C833564225DFEDAC00205932 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
+				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		C891202A25D6FF2300F5E594 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +142,7 @@
 		C891203525D6FF2300F5E594 /* MariannePictureViewer */ = {
 			isa = PBXGroup;
 			children = (
+				C833564225DFEDAC00205932 /* App */,
 				C89120BA25DA924000F5E594 /* Services */,
 				C891209725D9200F00F5E594 /* Managers */,
 				C89120A525D9238C00F5E594 /* Models */,
@@ -168,8 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				C891207B25D81D0C00F5E594 /* BaseLprojIsHere */,
-				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
-				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";

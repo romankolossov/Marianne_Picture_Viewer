@@ -23,16 +23,20 @@ class MainViewController: BaseViewController {
         networkManager
     }
     private var collectionView: UICollectionView!
+    private var refreshControl: UIRefreshControl?
     var photoData: [PhotoElementData] = []
     var isLoading: Bool = false
     
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureMainVC()
+        (UIApplication.shared.delegate as! AppDelegate).restrictRotation = .portrait
         
+        configureMainVC()
         configureCollectionView()
+        
+        setupRefreshControl()
         collectionViewPhotoService = CollectionViewPhotoService(container: collectionView)
         
         loadData()
@@ -51,12 +55,12 @@ class MainViewController: BaseViewController {
         let layout = PhotoLayout()
         
         /* // Regular layout configuration
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 10.0
-        layout.minimumInteritemSpacing = 10.0
-        layout.itemSize = CGSize(width: 100.0, height: 100.0)
-        layout.scrollDirection = .vertical
-        */
+         let layout = UICollectionViewFlowLayout()
+         layout.minimumLineSpacing = 10.0
+         layout.minimumInteritemSpacing = 10.0
+         layout.itemSize = CGSize(width: 100.0, height: 100.0)
+         layout.scrollDirection = .vertical
+         */
         self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         self.collectionView.backgroundColor = .lightGray
         
@@ -69,12 +73,24 @@ class MainViewController: BaseViewController {
         self.view.addSubview(self.collectionView)
     }
     
-    // MARK: - Major methods
-
+    // MARK: Pull-to-refresh pattern method
+    
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        
+        refreshControl?.attributedTitle = NSAttributedString(string: "Reloading data...", attributes: [.font : UIFont.systemFont(ofSize: 12)])
+        refreshControl?.tintColor = .systemOrange
+        refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        collectionView.refreshControl = refreshControl
+    }
+    
+    // MARK: - Network methods
+    
     private func loadData(completion: (() -> Void)? = nil) {
         DispatchQueue.global().async { [weak self] in
             self?.networkManager.loadPhotos() { [weak self] result in
-
+                
                 switch result {
                 case let .success(photoElements):
                     let photoData: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
@@ -96,7 +112,7 @@ class MainViewController: BaseViewController {
     func loadPartData(from page: Int, completion: (() -> Void)? = nil) {
         DispatchQueue.global().async { [weak self] in
             self?.networkManager.loadPartPhotos(from: page) { [weak self] result in
-
+                
                 switch result {
                 case let .success(photoElements):
                     let photoData: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
@@ -113,6 +129,12 @@ class MainViewController: BaseViewController {
         }
     }
     
+    // MARK: - Actions
     
+    @objc private func refresh(_ sender: UIRefreshControl) {
+        self.loadData { [weak self] in
+            self?.refreshControl?.endRefreshing()
+        }
+    }
 }
 

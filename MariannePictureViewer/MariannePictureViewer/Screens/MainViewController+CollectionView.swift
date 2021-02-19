@@ -63,3 +63,4 @@ extension MainViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
     }
 }
+

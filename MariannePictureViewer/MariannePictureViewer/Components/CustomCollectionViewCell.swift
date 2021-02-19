@@ -19,45 +19,53 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         configureCell()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Configure methods
+    // MARK: - Configure
     
     private func configureCell() {
-        let indent: CGFloat = 3.0
-        
-        self.contentView.alpha = 0
         self.backgroundColor = .tertiarySystemFill
+        self.contentView.alpha = 0
         
-        let pictureLabelFrame = CGRect(x: indent, y: indent,
-                                       width: self.bounds.size.width - indent * 2,
-                                       height: 26.0)
+        // MARK: Layout subviews
         
-        self.pictureLabel = UILabel(frame: pictureLabelFrame)
-        self.pictureLabel.font = .systemFont(ofSize: 15)
-        self.pictureLabel.textColor = .purple
-        self.pictureLabel.textAlignment = NSTextAlignment.center
+        let indent: CGFloat = 3.0
+        let picScale: CGFloat = 16 / 9
         
-        self.contentView.addSubview(self.pictureLabel)
+        let labelHeight: CGFloat = 26.0
+        let labelWidth: CGFloat = ceil(self.bounds.size.width - indent * 2)
         
-        let picX = (self.bounds.size.width / 2 - (self.bounds.size.height - pictureLabel.frame.height) * 16 / 9 / 2) >= 0 ?
-            (self.bounds.size.width / 2 - (self.bounds.size.height - pictureLabel.frame.height) * 16 / 9 / 2) : 0
-        let picWidth = (self.bounds.size.height - pictureLabel.frame.height) * 16 / 9 <= self.bounds.size.width ?
-            (self.bounds.size.height - pictureLabel.frame.height) * 16 / 9 :
-            self.bounds.size.width
+        let estimatedPicWidth: CGFloat = ceil((self.bounds.size.height - labelHeight) * picScale)
+        let picWidth: CGFloat = estimatedPicWidth <= self.bounds.size.width ?
+            estimatedPicWidth : self.bounds.size.width
         
-        let pictureImageViewFrame = CGRect(x: picX, y: indent + pictureLabel.frame.height,
+        let picX: CGFloat = (self.bounds.size.width - estimatedPicWidth) >= 0 ?
+            ceil(self.bounds.size.width / 2 - estimatedPicWidth / 2) : 0.0
+        
+        let pictureLabelFrame = CGRect(x: indent,
+                                       y: indent,
+                                       width: labelWidth,
+                                       height: labelHeight)
+        let pictureImageViewFrame = CGRect(x: picX,
+                                           y: ceil(indent + labelHeight),
                                            width: picWidth,
-                                           height: self.bounds.size.height - pictureLabel.frame.height)
+                                           height: ceil(self.bounds.size.height - labelHeight))
         
-        self.pictureImageView = UIImageView(frame: pictureImageViewFrame)
-        self.pictureImageView.contentMode = .scaleAspectFit
+        // MARK: Configure subviws
         
+        pictureLabel = UILabel(frame: pictureLabelFrame)
+        pictureLabel.font = .systemFont(ofSize: 15)
+        pictureLabel.textColor = .purple
+        pictureLabel.textAlignment = NSTextAlignment.center
+        
+        pictureImageView = UIImageView(frame: pictureImageViewFrame)
+        pictureImageView.contentMode = .scaleAspectFit
+        
+        self.contentView.addSubview(pictureLabel)
         self.contentView.addSubview(pictureImageView)
     }
     
