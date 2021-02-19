@@ -75,7 +75,7 @@ class SecondViewController: UIViewController {
         guard let photoStringURL = photo.downloadURL else {
             fatalError()
         }
-        self.pictureLabel.text = "by \(photo.author ?? "")"
+        self.pictureLabel.text = "\(NSLocalizedString("author", comment: "by ")) \(photo.author ?? "")"
         
         /* SDWebImage use */
         self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [weak self] (image, error, SDImageCacheType, url) in

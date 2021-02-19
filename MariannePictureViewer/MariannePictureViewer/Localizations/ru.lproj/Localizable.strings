@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  MariannePictureViewer
+
+  Created by Roman Kolosov on 19.02.2021.
+  
+*/
+
+// TabBarController
+
+"mainTab" = "Фотографии";
+"favoritesTab" = "Избранное";
+
+// MainViewController
+
+"mainVCName" = "Фото Lorem";
+"reloadData" = "Загрузка фотографий...";
+
+// FirstViewController
+
+"aboutAppHeader" = "О ПРИЛОЖЕНИИ";
+"picturesHeader" = "ФОТОГРАФИИ";
+"favoritesHeader" = "ИЗБРАННОЕ";
+
+"aboutAppDescribe" = "\"Marianne Picture Viewer\" это приложение для просмотра фотографий ресурса the Lorem Picsum photos";
+"picturesDescribe" = "Фотографии предоставляются сайтом: https://picsum.photos";
+"favoritesDescribe" = "Сохраняйте выбранные фотографии в избранное";
+
+"nextButton" = "ДАЛЕЕ";
+"doneButton" = "ГОТОВО";
+
+// SecondViewController
+
+"author" = "автор:";
+
+// FavoritePicturesViewController
+
+"favoritePicturesVCName" = "Избранные фотографии";
+
+// Alerts
+
+"error" = "Ошибка";
+"actionsWithPicture" = "Действия с фотографией";
+"actionsWithPictureDescribe" = "Что необходимо сделать с выбранной фотографией?";
+"addToFavorite" = "Добавить в избранное";
+"removeFromFavorite" = "Удалить из избранного";
+"success" = "Успешно";
+"close" = "Закрыть";
