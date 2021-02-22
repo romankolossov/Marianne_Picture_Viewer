@@ -46,3 +46,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         self.navigationController?.pushViewController(secondVC, animated: true)
     }
 }
+
+// MARK: - Infinite Scrolling pattern methods
+
+extension MainViewController: UICollectionViewDataSourcePrefetching {
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard let maxIndex = indexPaths.map({ $0.row }).max() else { return }
+        
+        if (maxIndex > photoData.count - 3), !isLoading {
+            self.isLoading = true
+            self.loadPartData(from: NetworkManager.shared.nextFromPage)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+    }
+}
+

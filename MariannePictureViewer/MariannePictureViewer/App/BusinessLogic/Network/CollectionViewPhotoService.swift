@@ -81,16 +81,13 @@ class CollectionViewPhotoService {
                     completion?(.failure(DecoderError.failureInJSONdecoding))
                 }
             } else if let error = error {
-                #if DEBUG
-                print("error in session.dataTask from:\n\(#function)")
-                #endif
                 completion?(.failure(error))
             }
         }
         dataTask.resume()
     }
     
-    // MARK: Cache file methods
+    // MARK: - Cache file methods
 
     // Get an image cache file path basing on its url
     private func getFilePath(url: String) -> String? {
@@ -126,7 +123,7 @@ class CollectionViewPhotoService {
         return image
     }
     
-    // MARK: Network method
+    // MARK: - Network method
     
     private func loadPhoto(atIndexPath indexPath: IndexPath, byUrl url: String) {
         DispatchQueue.global().async { [weak self] in
@@ -150,6 +147,7 @@ class CollectionViewPhotoService {
                     
                     DispatchQueue.main.async { [weak self] in
                         self?.container.reloadItems(at: [indexPath])
+                        // MARK: TO DO: isLoading = false
                     }
                 case let .failure(error):
                     #if DEBUG
@@ -160,19 +158,26 @@ class CollectionViewPhotoService {
         }
     }
     
-    // MARK: Get photo method
+    // MARK: - Get photo method
     
     func getPhoto(atIndexPath indexPath: IndexPath, byUrl url: String) -> UIImage? {
         var image: UIImage?
         
         if let photo = images[url] {
-            print("\(url) : ОПЕРАТИВНАЯ ПАМЯТЬ")
+            #if DEBUG
+            print("\(url) : RAM cache use with PhotoService")
+            #endif
             image = photo
         } else if let photo = getImageFromCache(url: url) {
-            print("\(url) : ФИЗИЧЕСКАЯ ПАМЯТЬ")
+            #if DEBUG
+            print("\(url) : SDD cache file used with PhotoService")
+            #endif
             image = photo
         } else {
-            print("\(url) : ЗАГРУЗКА ИЗ СЕТИ")
+            #if DEBUG
+            print("\(url) : Network download with PhotoService")
+            #endif
+            // MARK: TO DO: isLoading = true
             loadPhoto(atIndexPath: indexPath, byUrl: url)
         }
         return image
