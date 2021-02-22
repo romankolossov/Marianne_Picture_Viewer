@@ -10,6 +10,7 @@
 		C83355AE25DBBAC700205932 /* PhotoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83355AD25DBBAC700205932 /* PhotoLayout.swift */; };
 		C833565125DFFF5F00205932 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C833565325DFFF5F00205932 /* Localizable.strings */; };
 		C833565D25E01B7800205932 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C833565B25E01B7800205932 /* InfoPlist.strings */; };
+		C83356CA25E3CB9D00205932 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356C925E3CB9D00205932 /* NetworkManagerTests.swift */; };
 		C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891203625D6FF2300F5E594 /* AppDelegate.swift */; };
 		C891203925D6FF2300F5E594 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891203825D6FF2300F5E594 /* SceneDelegate.swift */; };
 		C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891203A25D6FF2300F5E594 /* MainViewController.swift */; };
@@ -53,6 +54,7 @@
 		C833565C25E01B7800205932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C833566125E01BD100205932 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C833566225E01BD500205932 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C83356C925E3CB9D00205932 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		C891203325D6FF2300F5E594 /* MariannePictureViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MariannePictureViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C891203625D6FF2300F5E594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C891203825D6FF2300F5E594 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		C83355E625DCCF9B00205932 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C891207B25D81D0C00F5E594 /* BaseLprojIsHere */,
 				C833564725DFFE5400205932 /* Localizations */,
 				C891204225D6FF2700F5E594 /* Assets.xcassets */,
 			);
@@ -209,7 +212,6 @@
 				C83355E625DCCF9B00205932 /* Resources */,
 				C83355E725DCD00F00205932 /* Enviroments */,
 				C891207F25D81D8000F5E594 /* CoreData */,
-				C891207825D81BD500F5E594 /* SupportingFiles */,
 			);
 			path = MariannePictureViewer;
 			sourceTree = "<group>";
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				C891205025D6FF2700F5E594 /* MariannePictureViewerTests.swift */,
+				C83356C925E3CB9D00205932 /* NetworkManagerTests.swift */,
 				C891205225D6FF2700F5E594 /* Info.plist */,
 			);
 			path = MariannePictureViewerTests;
@@ -230,14 +233,6 @@
 				C891205D25D6FF2700F5E594 /* Info.plist */,
 			);
 			path = MariannePictureViewerUITests;
-			sourceTree = "<group>";
-		};
-		C891207825D81BD500F5E594 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				C891207B25D81D0C00F5E594 /* BaseLprojIsHere */,
-			);
-			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		C891207925D81C9000F5E594 /* Components */ = {
@@ -449,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83356CA25E3CB9D00205932 /* NetworkManagerTests.swift in Sources */,
 				C891205125D6FF2700F5E594 /* MariannePictureViewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
