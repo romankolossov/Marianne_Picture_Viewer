@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class SecondViewController: UIViewController {
+class SecondViewController: BaseViewController {
     
     // Some properties
     var pictureLabel: UILabel = UILabel()
@@ -75,7 +75,7 @@ class SecondViewController: UIViewController {
         guard let photoStringURL = photo.downloadURL else {
             fatalError()
         }
-        self.pictureLabel.text = "\(NSLocalizedString("author", comment: "by ")) \(photo.author ?? "")"
+        self.pictureLabel.text = "\(localize("author")) \(photo.author ?? "")"
         
         /* SDWebImage use */
         self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [weak self] (image, error, SDImageCacheType, url) in

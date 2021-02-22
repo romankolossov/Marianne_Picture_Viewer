@@ -45,7 +45,7 @@ class MainViewController: BaseViewController {
     // MARK: - Configure
     
     private func configureMainVC() {
-        self.title = NSLocalizedString("mainVCName", comment: "Lorem Picsum photos")
+        self.title = localize("mainVCName")
         
         self.navigationController?.navigationBar.prefersLargeTitles = true;
     }
@@ -78,7 +78,7 @@ class MainViewController: BaseViewController {
     private func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         
-        refreshControl?.attributedTitle = NSAttributedString(string: NSLocalizedString("reloadData", comment: "Reloading data..."), attributes: [.font : UIFont.systemFont(ofSize: 12)])
+        refreshControl?.attributedTitle = NSAttributedString(string: localize("reloadData"), attributes: [.font : UIFont.systemFont(ofSize: 12)])
         refreshControl?.tintColor = .systemOrange
         refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         
@@ -103,7 +103,7 @@ class MainViewController: BaseViewController {
                         completion?()
                     }
                 case let .failure(error):
-                    self?.showAlert(title: NSLocalizedString("error", comment: ""), message: error.localizedDescription)
+                    self?.showAlert(title: self?.localize("error"), message: error.localizedDescription)
                 }
             }
         }
@@ -123,7 +123,7 @@ class MainViewController: BaseViewController {
                         completion?()
                     }
                 case let .failure(error):
-                    self?.showAlert(title: NSLocalizedString("error", comment: ""), message: error.localizedDescription)
+                    self?.showAlert(title: self?.localize("error"), message: error.localizedDescription)
                 }
             }
         }

@@ -105,6 +105,7 @@
 		C83355E625DCCF9B00205932 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C833564725DFFE5400205932 /* Localizations */,
 				C891204225D6FF2700F5E594 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -123,6 +124,9 @@
 			children = (
 				C891203625D6FF2300F5E594 /* AppDelegate.swift */,
 				C891203825D6FF2300F5E594 /* SceneDelegate.swift */,
+				C83356BE25E3BB7200205932 /* BusinessLogic */,
+				C89120A525D9238C00F5E594 /* Entity */,
+				C83356BB25E3B9C200205932 /* Flow */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -133,6 +137,48 @@
 				C833565325DFFF5F00205932 /* Localizable.strings */,
 			);
 			path = Localizations;
+			sourceTree = "<group>";
+		};
+		C83356BB25E3B9C200205932 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C891207925D81C9000F5E594 /* Components */,
+				C891207A25D81CC900F5E594 /* Screens */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		C83356BC25E3BAED00205932 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C83355AD25DBBAC700205932 /* PhotoLayout.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C83356BD25E3BB5B00205932 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C89120A625D923D100F5E594 /* PhotoCodable.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C83356BE25E3BB7200205932 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				C83356C225E3C2E800205932 /* Network */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		C83356C225E3C2E800205932 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C891209825D9204700F5E594 /* NetworkManager.swift */,
+				C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C891202A25D6FF2300F5E594 = {
@@ -159,15 +205,10 @@
 			isa = PBXGroup;
 			children = (
 				C833564225DFEDAC00205932 /* App */,
-				C89120BA25DA924000F5E594 /* Services */,
-				C891209725D9200F00F5E594 /* Managers */,
-				C89120A525D9238C00F5E594 /* Models */,
-				C891207925D81C9000F5E594 /* Components */,
-				C891207A25D81CC900F5E594 /* Screens */,
-				C891207F25D81D8000F5E594 /* CoreData */,
+				C83356BC25E3BAED00205932 /* Core */,
 				C83355E625DCCF9B00205932 /* Resources */,
 				C83355E725DCD00F00205932 /* Enviroments */,
-				C833564725DFFE5400205932 /* Localizations */,
+				C891207F25D81D8000F5E594 /* CoreData */,
 				C891207825D81BD500F5E594 /* SupportingFiles */,
 			);
 			path = MariannePictureViewer;
@@ -203,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */,
-				C83355AD25DBBAC700205932 /* PhotoLayout.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -236,20 +276,12 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		C891209725D9200F00F5E594 /* Managers */ = {
+		C89120A525D9238C00F5E594 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				C891209825D9204700F5E594 /* NetworkManager.swift */,
+				C83356BD25E3BB5B00205932 /* Models */,
 			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		C89120A525D9238C00F5E594 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C89120A625D923D100F5E594 /* PhotoCodable.swift */,
-			);
-			path = Models;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		C89120AE25D9947000F5E594 /* Common */ = {
@@ -258,14 +290,6 @@
 				C89120AF25D994A900F5E594 /* BaseViewController.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		C89120BA25DA924000F5E594 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
