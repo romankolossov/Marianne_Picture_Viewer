@@ -29,6 +29,7 @@
 		C89120BC25DA92A000F5E594 /* CollectionViewPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */; };
 		C8D813CC25E40F8E008D4587 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C8D813CB25E40F8E008D4587 /* RealmSwift */; };
 		C8D813CE25E40F8E008D4587 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C8D813CD25E40F8E008D4587 /* Realm */; };
+		C8D813D425E4171E008D4587 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D813D325E4171E008D4587 /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C89120A625D923D100F5E594 /* PhotoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCodable.swift; sourceTree = "<group>"; };
 		C89120AF25D994A900F5E594 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPhotoService.swift; sourceTree = "<group>"; };
+		C8D813D325E4171E008D4587 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				C83356C225E3C2E800205932 /* Network */,
+				C8D813D225E416EF008D4587 /* Realm */,
 			);
 			path = BusinessLogic;
 			sourceTree = "<group>";
@@ -289,6 +292,14 @@
 				C89120AF25D994A900F5E594 /* BaseViewController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C8D813D225E416EF008D4587 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				C8D813D325E4171E008D4587 /* RealmManager.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D813D425E4171E008D4587 /* RealmManager.swift in Sources */,
 				C83355AE25DBBAC700205932 /* PhotoLayout.swift in Sources */,
 				C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */,
 				C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */,

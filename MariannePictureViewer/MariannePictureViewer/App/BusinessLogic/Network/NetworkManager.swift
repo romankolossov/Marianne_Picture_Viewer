@@ -100,6 +100,7 @@ class NetworkManager {
                 completion?(.failure(.incorrectData))
             }
         }
+        print("!!!!!!!!!!!!!loaded from page: ", (NetworkManager.shared.nextFromPage))
         NetworkManager.shared.nextFromPage = page + 1
     }
 }

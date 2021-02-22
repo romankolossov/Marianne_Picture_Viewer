@@ -16,14 +16,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.photoData.count
+        guard let photos = self.photos else { fatalError() }
+        
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicCellIdentifier, for: indexPath) as? CustomCollectionViewCell else {
-            fatalError()
-        }
-        let photoElementData = self.photoData[indexPath.row]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicCellIdentifier, for: indexPath) as? CustomCollectionViewCell else { fatalError() }
+        guard let photos = self.photos else { fatalError() }
+        
+        let photoElementData = photos[indexPath.row]
         
         cell.lookConfigure(with: photoElementData,
                            photoService: publicCollectionViewPhotoService,
@@ -35,9 +37,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // MARK: - UICollectionViewDelegate protocol methods
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let photos = self.photos else { fatalError() }
         let secondVC = SecondViewController()
         
-        let photoElementData = self.photoData[indexPath.row]
+        let photoElementData = photos[indexPath.row]
         
         secondVC.lookConfigure(with: photoElementData,
                            photoService: publicCollectionViewPhotoService,
@@ -52,9 +55,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MainViewController: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard let photos = self.photos else { fatalError() }
         guard let maxIndex = indexPaths.map({ $0.row }).max() else { return }
         
-        if (maxIndex > photoData.count - 3), !isLoading {
+        if (maxIndex > photos.count - 3), !isLoading {
             self.isLoading = true
             self.loadPartData(from: NetworkManager.shared.nextFromPage)
         }

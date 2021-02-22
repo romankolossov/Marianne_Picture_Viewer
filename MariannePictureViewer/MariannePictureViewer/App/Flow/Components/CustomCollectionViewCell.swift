@@ -83,14 +83,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
         // RAM cache use
         if let image = cachedImages[photoStringURL] {
             #if DEBUG
-            print("\(photoStringURL) : Cached image with SDWebImage")
+            //print("\(photoStringURL) : Cached image with SDWebImage")
             #endif
             self.pictureImageView.image = image
             self.pictureLabel.text = photo.author
         } else {
             self.pictureImageView.sd_setImage(with: URL(string: photoStringURL)) { [weak self] (image, error, SDImageCacheType, url) in
                 #if DEBUG
-                print("\(photoStringURL) : Network image with SDWebImage")
+                //print("\(photoStringURL) : Network image with SDWebImage")
                 #endif
                 self?.pictureLabel.text = photo.author
                 self?.animateSubviews()
