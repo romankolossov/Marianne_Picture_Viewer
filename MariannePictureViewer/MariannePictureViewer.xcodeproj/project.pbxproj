@@ -27,6 +27,8 @@
 		C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120AF25D994A900F5E594 /* BaseViewController.swift */; };
 		C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C89120B525D99B5F00F5E594 /* SDWebImage */; };
 		C89120BC25DA92A000F5E594 /* CollectionViewPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */; };
+		C8D813CC25E40F8E008D4587 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C8D813CB25E40F8E008D4587 /* RealmSwift */; };
+		C8D813CE25E40F8E008D4587 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C8D813CD25E40F8E008D4587 /* Realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D813CE25E40F8E008D4587 /* Realm in Frameworks */,
+				C8D813CC25E40F8E008D4587 /* RealmSwift in Frameworks */,
 				C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +309,8 @@
 			name = MariannePictureViewer;
 			packageProductDependencies = (
 				C89120B525D99B5F00F5E594 /* SDWebImage */,
+				C8D813CB25E40F8E008D4587 /* RealmSwift */,
+				C8D813CD25E40F8E008D4587 /* Realm */,
 			);
 			productName = MariannePictureViewer;
 			productReference = C891203325D6FF2300F5E594 /* MariannePictureViewer.app */;
@@ -380,6 +386,7 @@
 			mainGroup = C891202A25D6FF2300F5E594;
 			packageReferences = (
 				C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C8D813CA25E40F8E008D4587 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = C891203425D6FF2300F5E594 /* Products */;
 			projectDirPath = "";
@@ -794,6 +801,14 @@
 				minimumVersion = 5.10.4;
 			};
 		};
+		C8D813CA25E40F8E008D4587 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -801,6 +816,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C89120B425D99B5F00F5E594 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		C8D813CB25E40F8E008D4587 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8D813CA25E40F8E008D4587 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		C8D813CD25E40F8E008D4587 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8D813CA25E40F8E008D4587 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
 
