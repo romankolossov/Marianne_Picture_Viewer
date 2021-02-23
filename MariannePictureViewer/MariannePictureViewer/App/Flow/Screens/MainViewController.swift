@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: BaseViewController {
     
@@ -22,9 +23,14 @@ class MainViewController: BaseViewController {
     var publicNetworkManager: NetworkManager {
         networkManager
     }
+    private let realmManager = RealmManager.shared
+    
+    var photos: Results<PhotoElementData>? {
+        let photos: Results<PhotoElementData>? = realmManager?.getObjects()
+        return photos?.sorted(byKeyPath: "id", ascending: true)
+    }
     private var collectionView: UICollectionView!
     private var refreshControl: UIRefreshControl?
-    var photoData: [PhotoElementData] = []
     var isLoading: Bool = false
     
     // MARK: - Lifecycle
@@ -39,7 +45,9 @@ class MainViewController: BaseViewController {
         setupRefreshControl()
         collectionViewPhotoService = CollectionViewPhotoService(container: collectionView)
         
-        loadData()
+        if let photos = photos, photos.isEmpty  {
+            loadData()
+        }
     }
     
     // MARK: - Configure
@@ -53,14 +61,7 @@ class MainViewController: BaseViewController {
     private func configureCollectionView() {
         // Custom layout
         let layout = PhotoLayout()
-        
-        /* // Regular layout configuration
-         let layout = UICollectionViewFlowLayout()
-         layout.minimumLineSpacing = 10.0
-         layout.minimumInteritemSpacing = 10.0
-         layout.itemSize = CGSize(width: 100.0, height: 100.0)
-         layout.scrollDirection = .vertical
-         */
+    
         self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         self.collectionView.backgroundColor = .lightGray
         
@@ -93,11 +94,10 @@ class MainViewController: BaseViewController {
                 
                 switch result {
                 case let .success(photoElements):
-                    let photoData: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
+                    let photos: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
                     DispatchQueue.main.async { [weak self] in
-                        self?.photoData.removeAll()
-                        //self?.photoData = photoData.map{$0}
-                        self?.photoData = photoData
+                        try? self?.realmManager?.deleteAll()
+                        try? self?.realmManager?.add(objects: photos)
                         self?.collectionView.reloadData()
                         self?.isLoading = false
                         completion?()
@@ -115,9 +115,9 @@ class MainViewController: BaseViewController {
                 
                 switch result {
                 case let .success(photoElements):
-                    let photoData: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
+                    let nextPhotos: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
                     DispatchQueue.main.async { [weak self] in
-                        self?.photoData = (self?.photoData ?? []) + photoData
+                        try? self?.realmManager?.add(objects: nextPhotos)
                         self?.collectionView.reloadData()
                         self?.isLoading = false
                         completion?()
@@ -132,6 +132,7 @@ class MainViewController: BaseViewController {
     // MARK: - Actions
     
     @objc private func refresh(_ sender: UIRefreshControl) {
+        NetworkManager.shared.nextFromPage = 2
         self.loadData { [weak self] in
             self?.refreshControl?.endRefreshing()
         }

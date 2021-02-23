@@ -100,6 +100,9 @@ class NetworkManager {
                 completion?(.failure(.incorrectData))
             }
         }
+        #if DEBUG
+        print("photos loaded from page: ", NetworkManager.shared.nextFromPage)
+        #endif
         NetworkManager.shared.nextFromPage = page + 1
     }
 }
