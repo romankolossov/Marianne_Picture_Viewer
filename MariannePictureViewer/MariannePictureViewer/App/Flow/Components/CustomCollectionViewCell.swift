@@ -74,11 +74,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
         guard let photoStringURL = photo.downloadURL else {
             fatalError()
         }
-        
-        /* SDWebImage use
-         SDWebImage used since it is the most easy way to download images
-         avoiding its mismatch in cells. Also it shows the download activity */
+        // SDWebImage use for activity indicator
         self.pictureImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        
+        /* SDWebImage use for image download*/
+        /* SDWebImage used since it is the most easy way to download images
+         avoiding its mismatch in cells. Also it shows the download activity */
         
         // RAM cache use
         if let image = cachedImages[photoStringURL] {
@@ -101,20 +102,21 @@ class CustomCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
-        /* SDWebImage use end */
+        /* SDWebImage use for image download end */
  
-        /* Way of use RAM, file image caches and network download with CollectionViewPhotoService.
+        /* Way of use RAM and file image caches with network download providing CollectionViewPhotoService.
          It is slower than the use SDWebImage for network.
          Also it causes mismatch images when cache fomm file used.
          Stack - CollectionViewPhotoService.
          In order to use CollectionViewPhotoService, plese
-         1. comment the code between "SDWebImage use - SDWebImage use end";
-         2. comment line "private var cachedImages: Dictionary = [String : UIImage]()"
-         3. remove comments from the use of photoService and "self.pictureLabel.tex=" in the lines bellow;
+         1. comment the code between "SDWebImage use for image download - SDWebImage use end";
+         2. comment the line: "private var cachedImages: Dictionary = [String : UIImage]()"
+         3. remove comments from the use of photoService, "self.pictureLabel.tex=" and "self.animateSubviews()" for the lines bellow;
          4. perform actions following instructions in SecondViewController.swift file.
          */
         //self.pictureImageView.image = photoService?.getPhoto(atIndexPath: indexPath, byUrl: photoStringURL)
         //self.pictureLabel.text = photo.author
+        //self.animateSubviews()
         
         animate()
     }

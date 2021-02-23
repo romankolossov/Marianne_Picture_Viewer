@@ -23,7 +23,7 @@
 		C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */; };
 		C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208B25D851D300F5E594 /* SecondViewController.swift */; };
 		C891209925D9204700F5E594 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891209825D9204700F5E594 /* NetworkManager.swift */; };
-		C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120A625D923D100F5E594 /* PhotoCodable.swift */; };
+		C89120A725D923D100F5E594 /* PhotoRealmCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120A625D923D100F5E594 /* PhotoRealmCodable.swift */; };
 		C89120B025D994A900F5E594 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120AF25D994A900F5E594 /* BaseViewController.swift */; };
 		C89120B625D99B5F00F5E594 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C89120B525D99B5F00F5E594 /* SDWebImage */; };
 		C89120BC25DA92A000F5E594 /* CollectionViewPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */; };
@@ -76,7 +76,7 @@
 		C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C891208B25D851D300F5E594 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C891209825D9204700F5E594 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		C89120A625D923D100F5E594 /* PhotoCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCodable.swift; sourceTree = "<group>"; };
+		C89120A625D923D100F5E594 /* PhotoRealmCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRealmCodable.swift; sourceTree = "<group>"; };
 		C89120AF25D994A900F5E594 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C89120BB25DA92A000F5E594 /* CollectionViewPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPhotoService.swift; sourceTree = "<group>"; };
 		C8D813D325E4171E008D4587 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		C83356BD25E3BB5B00205932 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C89120A625D923D100F5E594 /* PhotoCodable.swift */,
+				C89120A625D923D100F5E594 /* PhotoRealmCodable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 				C8D813D425E4171E008D4587 /* RealmManager.swift in Sources */,
 				C83355AE25DBBAC700205932 /* PhotoLayout.swift in Sources */,
 				C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */,
-				C89120A725D923D100F5E594 /* PhotoCodable.swift in Sources */,
+				C89120A725D923D100F5E594 /* PhotoRealmCodable.swift in Sources */,
 				C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */,
 				C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */,
 				C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */,

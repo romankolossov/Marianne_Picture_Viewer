@@ -27,7 +27,7 @@ class MainViewController: BaseViewController {
     
     var photos: Results<PhotoElementData>? {
         let photos: Results<PhotoElementData>? = realmManager?.getObjects()
-        return photos?.sorted(byKeyPath: "id")
+        return photos?.sorted(byKeyPath: "id", ascending: true)
     }
     private var collectionView: UICollectionView!
     private var refreshControl: UIRefreshControl?
@@ -96,6 +96,7 @@ class MainViewController: BaseViewController {
                 case let .success(photoElements):
                     let photos: [PhotoElementData] = photoElements.map {  PhotoElementData(photoElement: $0)}
                     DispatchQueue.main.async { [weak self] in
+                        try? self?.realmManager?.deleteAll()
                         try? self?.realmManager?.add(objects: photos)
                         self?.collectionView.reloadData()
                         self?.isLoading = false
@@ -131,7 +132,7 @@ class MainViewController: BaseViewController {
     // MARK: - Actions
     
     @objc private func refresh(_ sender: UIRefreshControl) {
-        //try? realmManager?.deleteAll()
+        NetworkManager.shared.nextFromPage = 2
         self.loadData { [weak self] in
             self?.refreshControl?.endRefreshing()
         }
