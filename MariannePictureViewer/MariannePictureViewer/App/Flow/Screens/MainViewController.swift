@@ -29,7 +29,7 @@ class MainViewController: BaseViewController {
         let photos: Results<PhotoElementData>? = realmManager?.getObjects()
         return photos?.sorted(byKeyPath: "id", ascending: true)
     }
-    private var collectionView: UICollectionView!
+    private var collectionView: UICollectionView?
     private var refreshControl: UIRefreshControl?
     var isLoading: Bool = false
 
@@ -43,7 +43,7 @@ class MainViewController: BaseViewController {
         configureCollectionView()
 
         setupRefreshControl()
-        collectionViewPhotoService = CollectionViewPhotoService(container: collectionView)
+        collectionViewPhotoService = CollectionViewPhotoService(container: collectionView!)
 
         if let photos = photos, photos.isEmpty {
             loadData()
@@ -62,16 +62,19 @@ class MainViewController: BaseViewController {
         // Custom layout
         let layout = PhotoLayout()
 
-        self.collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        self.collectionView.backgroundColor = .lightGray
+        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        collectionView?.backgroundColor = .lightGray
 
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-        self.collectionView.prefetchDataSource = self
+        collectionView?.dataSource = self
+        collectionView?.delegate = self
+        collectionView?.prefetchDataSource = self
 
-        self.collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: publicCellIdentifier)
+        collectionView?.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: publicCellIdentifier)
 
-        self.view.addSubview(self.collectionView)
+        guard let collectionSubview = collectionView else {
+            return
+        }
+        self.view.addSubview(collectionSubview)
     }
 
     // MARK: Pull-to-refresh pattern method
@@ -83,7 +86,7 @@ class MainViewController: BaseViewController {
         refreshControl?.tintColor = .systemOrange
         refreshControl?.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
 
-        collectionView.refreshControl = refreshControl
+        collectionView?.refreshControl = refreshControl
     }
 
     // MARK: - Network methods
@@ -98,7 +101,7 @@ class MainViewController: BaseViewController {
                     DispatchQueue.main.async { [weak self] in
                         try? self?.realmManager?.deleteAll()
                         try? self?.realmManager?.add(objects: photos)
-                        self?.collectionView.reloadData()
+                        self?.collectionView?.reloadData()
                         self?.isLoading = false
                         completion?()
                     }
@@ -118,7 +121,7 @@ class MainViewController: BaseViewController {
                     let nextPhotos: [PhotoElementData] = photoElements.map { PhotoElementData(photoElement: $0) }
                     DispatchQueue.main.async { [weak self] in
                         try? self?.realmManager?.add(objects: nextPhotos)
-                        self?.collectionView.reloadData()
+                        self?.collectionView?.reloadData()
                         self?.isLoading = false
                         completion?()
                     }
