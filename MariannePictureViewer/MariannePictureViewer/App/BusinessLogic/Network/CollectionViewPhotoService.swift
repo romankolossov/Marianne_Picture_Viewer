@@ -39,11 +39,11 @@ class CollectionViewPhotoService {
     private let cacheLifeTime: TimeInterval = 1 * 60 * 60
 
     var images = [String: UIImage]()
-    private let container: UICollectionView
+    private let container: UICollectionView?
 
     // MARK: - Initializer
 
-    init(container: UICollectionView) {
+    init(container: UICollectionView?) {
         self.container = container
     }
 
@@ -144,7 +144,7 @@ class CollectionViewPhotoService {
                     self?.saveImageToCache(url: photoStringURL, image: image)
 
                     DispatchQueue.main.async { [weak self] in
-                        self?.container.reloadItems(at: [indexPath])
+                        self?.container?.reloadItems(at: [indexPath])
                         // MARK: TO DO: isLoading = false
                     }
                 case let .failure(error):

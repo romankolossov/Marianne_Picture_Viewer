@@ -71,10 +71,10 @@ identifier_name:
   min_length: 1
 
 custom_rules:
-  nslocalizedstrings_alert:
-    regex: "NSLocalizedString"
-    name: "Localization Safety"
-    message: "Use R.string.localizable instead."
+  # nslocalizedstrings_alert:
+    # regex: "NSLocalizedString"
+    # name: "Localization Safety"
+    # message: "Use R.string.localizable instead."
   dateinterval_alert:
     regex: "DateInterval"
     name: "Time Travel Safety"

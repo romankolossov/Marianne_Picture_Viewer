@@ -21,7 +21,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configureCell()
     }
-    required init?(coder: NSCoder) {
+    @available(*, unavailable) required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

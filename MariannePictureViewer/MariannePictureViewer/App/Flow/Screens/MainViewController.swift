@@ -43,7 +43,7 @@ class MainViewController: BaseViewController {
         configureCollectionView()
 
         setupRefreshControl()
-        collectionViewPhotoService = CollectionViewPhotoService(container: collectionView!)
+        collectionViewPhotoService = CollectionViewPhotoService(container: collectionView)
 
         if let photos = photos, photos.isEmpty {
             loadData()
