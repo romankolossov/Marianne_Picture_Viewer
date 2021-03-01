@@ -9,22 +9,22 @@ import XCTest
 @testable import MariannePictureViewer
 
 class NetworkManagerTests: XCTestCase {
-    
+
     // MARK: - Positive tests
-    
+
     func testLoadPhotos() throws {
         // Given
         // Initialize test date and system under test
         let networkManager = NetworkManager.shared
-        
+
         // When
         // Call system under test
         let loadPhotosComplete = expectation(description: "photos loaded")
-        
+
         networkManager.loadPhotos { response in
             switch response {
             case .success(let model):
-                //Then
+                // Then
                 // Verify that output is as expected
                 guard let elementFirst: PhotoElement = model.first else { return }
                 XCTAssertEqual(elementFirst.author, "Alejandro Escamilla")
@@ -35,20 +35,20 @@ class NetworkManagerTests: XCTestCase {
         }
         waitForExpectations(timeout: 8.0, handler: nil)
     }
-    
+
     func testLoadPartPhotos() throws {
         // Given
         // Initialize test date and system under test
         let networkManager = NetworkManager.shared
-        
+
         // When
         // Call system under test
         let loadPartPhotosComplete = expectation(description: "part photos loaded")
-        
+
         networkManager.loadPartPhotos(from: 1) { response in
             switch response {
             case .success(let model):
-                //Then
+                // Then
                 // Verify that output is as expected
                 guard let elementFirst: PhotoElement = model.first else { return }
                 XCTAssertEqual(elementFirst.author, "Alejandro Escamilla")
@@ -58,19 +58,6 @@ class NetworkManagerTests: XCTestCase {
             }
         }
         waitForExpectations(timeout: 8.0, handler: nil)
-    }
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testPerformanceExample() throws {

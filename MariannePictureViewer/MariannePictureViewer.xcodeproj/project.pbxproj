@@ -11,14 +11,13 @@
 		C833565125DFFF5F00205932 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C833565325DFFF5F00205932 /* Localizable.strings */; };
 		C833565D25E01B7800205932 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C833565B25E01B7800205932 /* InfoPlist.strings */; };
 		C83356CA25E3CB9D00205932 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356C925E3CB9D00205932 /* NetworkManagerTests.swift */; };
+		C87649E125ED0E6800C2F915 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C87649E025ED0E6800C2F915 /* .swiftlint.yml */; };
 		C891203725D6FF2300F5E594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891203625D6FF2300F5E594 /* AppDelegate.swift */; };
 		C891203925D6FF2300F5E594 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891203825D6FF2300F5E594 /* SceneDelegate.swift */; };
 		C891203B25D6FF2300F5E594 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891203A25D6FF2300F5E594 /* MainViewController.swift */; };
 		C891204125D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C891203F25D6FF2300F5E594 /* MariannePictureViewer.xcdatamodeld */; };
 		C891204325D6FF2700F5E594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C891204225D6FF2700F5E594 /* Assets.xcassets */; };
 		C891204625D6FF2700F5E594 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C891204425D6FF2700F5E594 /* LaunchScreen.storyboard */; };
-		C891205125D6FF2700F5E594 /* MariannePictureViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891205025D6FF2700F5E594 /* MariannePictureViewerTests.swift */; };
-		C891205C25D6FF2700F5E594 /* MariannePictureViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */; };
 		C891207425D81BAC00F5E594 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */; };
 		C891208725D8495F00F5E594 /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */; };
 		C891208C25D851D300F5E594 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C891208B25D851D300F5E594 /* SecondViewController.swift */; };
@@ -58,6 +57,7 @@
 		C833566125E01BD100205932 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C833566225E01BD500205932 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C83356C925E3CB9D00205932 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		C87649E025ED0E6800C2F915 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C891203325D6FF2300F5E594 /* MariannePictureViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MariannePictureViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C891203625D6FF2300F5E594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C891203825D6FF2300F5E594 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,10 +67,8 @@
 		C891204525D6FF2700F5E594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C891204725D6FF2700F5E594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C891204C25D6FF2700F5E594 /* MariannePictureViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MariannePictureViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C891205025D6FF2700F5E594 /* MariannePictureViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MariannePictureViewerTests.swift; sourceTree = "<group>"; };
 		C891205225D6FF2700F5E594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C891205725D6FF2700F5E594 /* MariannePictureViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MariannePictureViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MariannePictureViewerUITests.swift; sourceTree = "<group>"; };
 		C891205D25D6FF2700F5E594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C891207325D81BAC00F5E594 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		C891208625D8495F00F5E594 /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -198,6 +196,7 @@
 				C891204F25D6FF2700F5E594 /* MariannePictureViewerTests */,
 				C891205A25D6FF2700F5E594 /* MariannePictureViewerUITests */,
 				C891203425D6FF2300F5E594 /* Products */,
+				C87649E025ED0E6800C2F915 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,7 +225,6 @@
 		C891204F25D6FF2700F5E594 /* MariannePictureViewerTests */ = {
 			isa = PBXGroup;
 			children = (
-				C891205025D6FF2700F5E594 /* MariannePictureViewerTests.swift */,
 				C83356C925E3CB9D00205932 /* NetworkManagerTests.swift */,
 				C891205225D6FF2700F5E594 /* Info.plist */,
 			);
@@ -236,7 +234,6 @@
 		C891205A25D6FF2700F5E594 /* MariannePictureViewerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C891205B25D6FF2700F5E594 /* MariannePictureViewerUITests.swift */,
 				C891205D25D6FF2700F5E594 /* Info.plist */,
 			);
 			path = MariannePictureViewerUITests;
@@ -312,6 +309,7 @@
 				C891202F25D6FF2300F5E594 /* Sources */,
 				C891203025D6FF2300F5E594 /* Frameworks */,
 				C891203125D6FF2300F5E594 /* Resources */,
+				C87649E525ED0ECC00C2F915 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -415,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C87649E125ED0E6800C2F915 /* .swiftlint.yml in Resources */,
 				C891204625D6FF2700F5E594 /* LaunchScreen.storyboard in Resources */,
 				C833565D25E01B7800205932 /* InfoPlist.strings in Resources */,
 				C833565125DFFF5F00205932 /* Localizable.strings in Resources */,
@@ -437,6 +436,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C87649E525ED0ECC00C2F915 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C891202F25D6FF2300F5E594 /* Sources */ = {
@@ -464,7 +483,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C83356CA25E3CB9D00205932 /* NetworkManagerTests.swift in Sources */,
-				C891205125D6FF2700F5E594 /* MariannePictureViewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +490,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C891205C25D6FF2700F5E594 /* MariannePictureViewerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
