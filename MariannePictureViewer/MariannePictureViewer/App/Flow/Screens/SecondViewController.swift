@@ -3,7 +3,7 @@
 //  MariannePictureViewer
 //
 //  Created by Roman Kolosov on 13.02.2021.
-//  Test
+//
 
 import UIKit
 import SDWebImage
